@@ -40,6 +40,7 @@ export default {
                                 <span class="text-white">the lazy dog.</span>
                             </p>
                         </div>
+                        </div>  
                     </div>
                     <div class="w-full lg:w-1/2 px-4">
                         <div class="px-6 lg:px-20 py-12 lg:py-24 bg-gray-600 rounded-lg">
@@ -108,6 +109,9 @@ export default {
                             </form>
                         </div>
                     </div>
+                    </div>
+            </div>
+                  </section>
   <section
     class="relative py-20 2xl:py-40 overflow-hidden to-pink-200 via-indigo-200 from-blue-200 bg-gradient-to-tr"
   >
@@ -253,6 +257,9 @@ export default {
             </div>
           </div>
         </div>
+      </div>
+    </div>
+      
     </section>
 
 </template>

@@ -26,7 +26,7 @@
         
       />
     </button>
-  </div>
+  
 </template>
 
 <script>
