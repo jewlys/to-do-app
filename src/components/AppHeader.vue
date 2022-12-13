@@ -28,8 +28,8 @@
       class="flex items-center justify-center w-8 h-8 ml-auto overflow-hidden rounded-full cursor-pointer"
     >
       <img
-        src="https://assets.codepen.io/5041378/internal/avatars/users/default.png?fit=crop&format=auto&height=512&version=1600304177&width=512"
-        alt=""
+        src=
+        
       />
     </buton>
   </div>
@@ -41,7 +41,7 @@ export default {
         {
 
 
-        }
+        
 
 
     }
