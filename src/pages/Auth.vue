@@ -266,10 +266,6 @@ export default {
     </section>
 
 </template>
-<script>
 
-</script>
-      </div>
-    </div>
-  </section>
-</template>
+     
+
