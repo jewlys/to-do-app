@@ -1,4 +1,6 @@
 <template>
+
+
     <section class="relative py-20 2xl:py-40 bg-gray-800 overflow-hidden">
         <img class="hidden lg:block absolute inset-0 mt-32" src="zospace-assets/lines/line-mountain.svg" alt="">
         <img class="hidden lg:block absolute inset-y-0 right-0 -mr-40 -mt-32"
@@ -88,6 +90,8 @@
             </div>
         </div>
     </section>
+
 </template>
 <script>
+
 </script>
