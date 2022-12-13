@@ -13,9 +13,7 @@ export default {
   methods: {
     sendForm() {
       this.userStore.signUp(this.email, this.password);
-      console.log("Holaaaaaaaaaaa");
       this.$router.push("/login");
-      console.log("ADEEUUUUU");
     },
   },
   computed: {
