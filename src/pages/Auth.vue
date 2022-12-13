@@ -1,6 +1,7 @@
 <script>
 import userStore from "../store/user";
 import { mapStores } from "pinia";
+
 export default {
   data() {
     return {
@@ -12,6 +13,9 @@ export default {
   methods: {
     sendForm() {
       this.userStore.signUp(this.email, this.password);
+      console.log("Holaaaaaaaaaaa");
+      this.$router.push("/login");
+      console.log("ADEEUUUUU");
     },
   },
   computed: {
@@ -248,7 +252,6 @@ export default {
                   </p>
                 </div>
                 <button
-                  @click=""
                   class="py-4 w-full bg-indigo-200 hover:bg-blue-600 text-slate-900 font-bold rounded-full transition duration-200"
                 >
                   Get started
