@@ -1,17 +1,29 @@
+<script>
+import userStore from "../store/user";
+import { mapStores } from "pinia";
+export default {
+  data() {
+    return {
+      email: "",
+      password: "",
+      confirmPassword: "",
+    };
+  },
+  methods: {
+    sendForm() {
+      this.userStore.signUp(this.email, this.password);
+    },
+  },
+  computed: {
+    ...mapStores(userStore),
+  },
+};
+</script>
+
 <template>
   <section
     class="relative py-20 2xl:py-40 overflow-hidden to-pink-200 via-indigo-200 from-blue-200 bg-gradient-to-tr"
   >
-    <img
-      class="hidden lg:block absolute inset-0 mt-32"
-      src="zospace-assets/lines/line-mountain.svg"
-      alt=""
-    />
-    <img
-      class="hidden lg:block absolute inset-y-0 right-0 -mr-40 -mt-32"
-      src="zospace-assets/lines/line-right-long.svg"
-      alt=""
-    />
     <div class="relative container px-4 mx-auto">
       <div class="max-w-5xl mx-auto">
         <div class="flex flex-wrap items-center -mx-4">
@@ -32,7 +44,7 @@
           </div>
           <div class="w-full lg:w-1/2 px-4">
             <div class="px-6 lg:px-20 py-12 lg:py-24 bg-indigo-300 rounded-lg">
-              <form action="#">
+              <form @submit.prevent="sendForm()" action="#">
                 <h3 class="mb-10 text-2xl text-slate-00 font-bold font-heading">
                   Register Account
                 </h3>
@@ -75,7 +87,9 @@
                       ></rect>
                     </svg>
                   </span>
+
                   <input
+                    v-model="email"
                     class="w-full pl-4 pr-6 py-4 font-bold placeholder-slate-700 rounded-r-full focus:outline-none"
                     type="email"
                     placeholder="example@habib.me"
@@ -102,6 +116,7 @@
                     </svg>
                   </span>
                   <input
+                    v-model="password"
                     class="w-full pl-4 pr-6 py-4 font-bold placeholder-slate-700 rounded-r-full focus:outline-none"
                     type="password"
                     placeholder="Password"
@@ -142,6 +157,7 @@
                   </p>
                 </div>
                 <button
+                  @click=""
                   class="py-4 w-full bg-indigo-200 hover:bg-blue-600 text-slate-900 font-bold rounded-full transition duration-200"
                 >
                   Get started
@@ -154,4 +170,3 @@
     </div>
   </section>
 </template>
-<script></script>
