@@ -11,7 +11,7 @@ const router = createRouter({
       component: Dashboard,
     },
     {
-      path: "/signin",
+      path: "/singin",
       component: Auth,
     },
     {
