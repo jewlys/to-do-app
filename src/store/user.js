@@ -17,8 +17,16 @@ export default defineStore("user", {
         password: password,
       });
       if (error) throw error;
-      // if (user) this.user = user;
     },
+    async logIn(email, password) {
+      const { user, error } = await supabase.auth.logIn({
+        email: email,
+        password: password,
+      });
+      if (error) throw error;
+      if (user) this.user = user;
+    },
+
     persist: {
       enabled: true,
       strategies: [

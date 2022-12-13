@@ -1,6 +1,7 @@
 <script>
 import userStore from "../store/user";
 import { mapStores } from "pinia";
+
 export default {
   data() {
     return {
@@ -12,6 +13,9 @@ export default {
   methods: {
     sendForm() {
       this.userStore.signUp(this.email, this.password);
+      console.log("Holaaaaaaaaaaa");
+      this.$router.push("/login");
+      console.log("ADEEUUUUU");
     },
   },
   computed: {
@@ -40,6 +44,7 @@ export default {
                                 <span class="text-white">the lazy dog.</span>
                             </p>
                         </div>
+                        </div>  
                     </div>
                     <div class="w-full lg:w-1/2 px-4">
                         <div class="px-6 lg:px-20 py-12 lg:py-24 bg-gray-600 rounded-lg">
@@ -108,6 +113,9 @@ export default {
                             </form>
                         </div>
                     </div>
+                    </div>
+            </div>
+                  </section>
   <section
     class="relative py-20 2xl:py-40 overflow-hidden to-pink-200 via-indigo-200 from-blue-200 bg-gradient-to-tr"
   >
@@ -244,7 +252,6 @@ export default {
                   </p>
                 </div>
                 <button
-                  @click=""
                   class="py-4 w-full bg-indigo-200 hover:bg-blue-600 text-slate-900 font-bold rounded-full transition duration-200"
                 >
                   Get started
@@ -253,13 +260,12 @@ export default {
             </div>
           </div>
         </div>
+      </div>
+    </div>
+      
     </section>
 
 </template>
-<script>
 
-</script>
-      </div>
-    </div>
-  </section>
-</template>
+     
+
