@@ -1,19 +1,4 @@
 <template>
-<<<<<<< HEAD
-    <div>
-      Aqui pegamos el login y eso
-    </div>
-  </template>
-  
-  <script>
-  export default {
-    name: 'auth-pages'
-  }
-  </script>
-  
-  <style scoped>
-  </style>
-=======
     <section class="relative py-20 2xl:py-40 bg-gray-800 overflow-hidden">
         <img class="hidden lg:block absolute inset-0 mt-32" src="zospace-assets/lines/line-mountain.svg" alt="">
         <img class="hidden lg:block absolute inset-y-0 right-0 -mr-40 -mt-32"
@@ -106,4 +91,3 @@
 </template>
 <script>
 </script>
->>>>>>> de71af508f6c2220da4c441c4429e92907d6c7bd

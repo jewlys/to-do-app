@@ -1,7 +1,5 @@
 <template>
-  <AppHeader />
-
-  <Footer />
+  
 
   <button @click="login"></button>
 </template>
