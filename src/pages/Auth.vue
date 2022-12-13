@@ -76,7 +76,7 @@
                     </svg>
                   </span>
                   <input
-                    class="w-full pl-4 pr-6 py-4 font-bold placeholder-gray-900 rounded-r-full focus:outline-none"
+                    class="w-full pl-4 pr-6 py-4 font-bold placeholder-slate-700 rounded-r-full focus:outline-none"
                     type="email"
                     placeholder="example@habib.me"
                   />
@@ -102,7 +102,7 @@
                     </svg>
                   </span>
                   <input
-                    class="w-full pl-4 pr-6 py-4 font-bold placeholder-gray-900 rounded-r-full focus:outline-none"
+                    class="w-full pl-4 pr-6 py-4 font-bold placeholder-slate-700 rounded-r-full focus:outline-none"
                     type="password"
                     placeholder="Password"
                   />
@@ -128,7 +128,7 @@
                     </svg>
                   </span>
                   <input
-                    class="w-full pl-4 pr-6 py-4 font-bold placeholder-gray-900 rounded-r-full focus:outline-none"
+                    class="w-full pl-4 pr-6 py-4 font-bold placeholder-slate-700 rounded-r-full focus:outline-none"
                     type="password"
                     placeholder="Repeat password"
                   />
