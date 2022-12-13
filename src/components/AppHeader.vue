@@ -27,8 +27,7 @@
 export default {
     data() {
         {
-            components
-            AppHeader;
+
 
         }
 
