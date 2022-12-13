@@ -12,7 +12,7 @@ const router = createRouter({
       component: Dashboard,
     },
     {
-      path: "/signin",
+      path: "/signup",
       component: Auth,
     },
     {
