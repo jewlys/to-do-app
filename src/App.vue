@@ -5,6 +5,7 @@ import Footer from "./components/Footer.vue";
 </script>
 
 <template>
+
   <RouterView />
   <AppHeader />
 
