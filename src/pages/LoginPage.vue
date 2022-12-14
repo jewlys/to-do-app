@@ -2,6 +2,7 @@
   <section
     class="relative py-20 2xl:py-40 overflow-hidden to-pink-200 via-indigo-200 from-blue-200 bg-gradient-to-tr"
   >
+    <div></div>
     <div class="relative container px-4 mx-auto">
       <div class="max-w-5xl mx-auto">
         <div class="flex flex-wrap items-center -mx-4">
@@ -10,7 +11,7 @@
           </div>
           <div class="w-full lg:w-1/2 px-4">
             <div class="px-6 lg:px-20 py-12 lg:py-24 bg-indigo-300 rounded-lg">
-              <form @submit.prevent="sendForm()" action="#">
+              <form @submit.prevent="logIn" action="#">
                 <h3 class="mb-10 text-2xl text-slate-00 font-bold font-heading">
                   Welcome back !
                 </h3>
@@ -91,7 +92,7 @@
 
                 <button
                   class="py-4 w-full bg-indigo-200 hover:bg-blue-600 text-slate-900 font-bold rounded-full transition duration-200"
-                >
+                 >
                   Log In
                 </button>
               </form>
@@ -103,4 +104,26 @@
   </section>
 </template>
 
-<script></script>
+<script>
+import { mapStores } from 'pinia'
+import userStore from "../store/user"
+
+export default {
+    computed: {
+        ...mapStores(userStore)
+    },
+    data () {
+    return {
+      email: "",
+      password: "",
+   }
+    },
+    methods: {
+      logIn() {
+        this.userStore.logIn(this.email,this.password)
+      }
+
+    }
+    
+
+}</script>
