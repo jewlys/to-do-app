@@ -94,6 +94,10 @@
                 >
                   Log In
                 </button>
+                <div>
+                  <p class="">Don't have an account?</p>
+                  <a href="/signup">Signup here</a>
+                </div>
               </form>
             </div>
           </div>
