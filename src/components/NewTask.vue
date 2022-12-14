@@ -10,7 +10,7 @@
 
 
 
-    <!-- form for adding the task-->
+    <!-- form for adding the task here-->
 
     <div class="" v-if="mostrarform" id="defaultModal">
       <form @submit="addnewTask()">
