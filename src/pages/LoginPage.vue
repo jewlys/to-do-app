@@ -11,7 +11,7 @@
           </div>
           <div class="w-full lg:w-1/2 px-4">
             <div class="px-6 lg:px-20 py-12 lg:py-24 bg-indigo-300 rounded-lg">
-              <form @submit.prevent="sendForm()" action="#">
+              <form @submit.prevent="toDashboard()" action="#">
                 <h3 class="mb-10 text-2xl text-slate-00 font-bold font-heading">
                   Welcome back !
                 </h3>
@@ -104,4 +104,19 @@
   </section>
 </template>
 
-<script></script>
+<script>
+export default {
+  data() {
+    return {};
+  },
+
+  methods: {
+    toDashboard() {
+      this.userStore.logIn(this.email, this.password);
+      console.log(Hola);
+      this.$router.push("/");
+      console.log(adeu);
+    },
+  },
+};
+</script>
