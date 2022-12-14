@@ -6,9 +6,7 @@
           class="flex items-center justify-center w-5 h-5 ml-2 text-sm font-semibold text-indigo-500 bg-white rounded bg-opacity-30"
           >3</span
         >
-      <div>
-        <newTask></newTask>
-      </div>
+    
       </div>
       <div class="flex flex-col pb-2 overflow-auto">
         <div
@@ -42,9 +40,6 @@
           class="flex items-center justify-center w-5 h-5 ml-2 text-sm font-semibold text-indigo-500 bg-white rounded bg-opacity-30"
           >3</span
         >
-        <div>
-          <NewTask></NewTask>
-        </div>
         
       </div>
       <div class="flex flex-col pb-2 overflow-auto">
@@ -81,7 +76,7 @@
           >3</span
         >
        <div>
-        <newTask></newTask>
+        
        </div>
       </div>
       <div class="flex flex-col pb-2 overflow-auto">

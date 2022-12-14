@@ -1,6 +1,6 @@
 <template>
 <div>
-<button
+<button @click = "addnewTask ()"
             class="flex items-center justify-center w-6 h-6 ml-auto text-indigo-500 rounded hover:bg-indigo-500 hover:text-indigo-100"
           >
             <svg
@@ -21,8 +21,14 @@
 </template>
 
 <script>
+import Task from "../store/task"
+export default {
+  data() {
+    {
+    }
+},
 
-
+};
 
 
 
