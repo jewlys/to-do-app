@@ -16,7 +16,9 @@ export default {
       this.$router.push("/login");
     },
     openPopup: function () {
-      alert("Please check your email");
+      if (this.email && this.password) {
+        return alert("Please check your email");
+      }
     },
   },
   computed: {
