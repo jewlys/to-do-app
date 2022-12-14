@@ -15,6 +15,9 @@ export default {
       this.userStore.signUp(this.email, this.password);
       this.$router.push("/login");
     },
+    openPopup: function () {
+      alert("Please verify your email");
+    },
   },
   computed: {
     ...mapStores(userStore),
@@ -151,14 +154,16 @@ export default {
                   />
                 </div>
                 <div class="inline-flex mb-10">
-                  <input class="mr-4" type="checkbox" />
+                  <input class="mr-4" type="checkbox" required />
                   <p class="-mt-2 text-sm text-gray-200">
                     By singning up, you agree to our
                     <a class="text-white" href="#">Terms, Data Policy</a>and
                     <a class="text-white" href="#">Cookies.</a>
                   </p>
                 </div>
+
                 <button
+                  @click="openPopup()"
                   class="py-4 w-full bg-indigo-200 hover:bg-blue-600 text-slate-900 font-bold rounded-full transition duration-200"
                 >
                   Get started
