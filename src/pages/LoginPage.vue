@@ -92,7 +92,7 @@
 
                 <button
                   class="py-4 w-full bg-indigo-200 hover:bg-blue-600 text-slate-900 font-bold rounded-full transition duration-200"
-                 >
+                >
                   Log In
                 </button>
               </form>
@@ -105,25 +105,23 @@
 </template>
 
 <script>
-import { mapStores } from 'pinia'
-import userStore from "../store/user"
+import { mapStores } from "pinia";
+import userStore from "../store/user";
 
 export default {
-    computed: {
-        ...mapStores(userStore)
-    },
-    data () {
+  computed: {
+    ...mapStores(userStore),
+  },
+  data() {
     return {
       email: "",
       password: "",
-   }
+    };
+  },
+  methods: {
+    logIn() {
+      this.userStore.logIn(this.email, this.password);
     },
-    methods: {
-      logIn() {
-        this.userStore.logIn(this.email,this.password)
-      }
-
-    }
-    
-
-}</script>
+  },
+};
+</script>
