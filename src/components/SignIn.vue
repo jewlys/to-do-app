@@ -19,7 +19,7 @@
                     </div>
                     <div class="w-full lg:w-1/2 px-4">
                         <div class="px-6 lg:px-20 py-12 lg:py-24 bg-gray-600 rounded-lg">
-                            <form action="#">
+                            <form  >
                                 <h3 class="mb-10 text-2xl text-white font-bold font-heading">Register Account</h3>
                                 <div class="flex items-center pl-6 mb-3 bg-white rounded-full">
                                     <span class="inline-block pr-3 py-2 border-r border-gray-50">
@@ -37,6 +37,7 @@
                                         </svg>
                                     </span>
                                     <input
+                                        v-model="email"
                                         class="w-full pl-4 pr-6 py-4 font-bold placeholder-gray-900 rounded-r-full focus:outline-none"
                                         type="email" placeholder="example@habib.me">
                                 </div>
@@ -52,7 +53,7 @@
                                                 fill="black"></path>
                                         </svg>
                                     </span>
-                                    <input
+                                    <input 
                                         class="w-full pl-4 pr-6 py-4 font-bold placeholder-gray-900 rounded-r-full focus:outline-none"
                                         type="password" placeholder="Password">
                                 </div>
@@ -92,4 +93,6 @@
 
 </template>
 <script>
+
+
 </script>

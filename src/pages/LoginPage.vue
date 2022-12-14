@@ -11,7 +11,7 @@
           </div>
           <div class="w-full lg:w-1/2 px-4">
             <div class="px-6 lg:px-20 py-12 lg:py-24 bg-indigo-300 rounded-lg">
-              <form @submit.prevent="toDashboard()" action="#">
+              <form @submit.prevent="logIn" action="#">
                 <h3 class="mb-10 text-2xl text-slate-00 font-bold font-heading">
                   Welcome back !
                 </h3>
@@ -105,17 +105,22 @@
 </template>
 
 <script>
-export default {
-  data() {
-    return {};
-  },
+import { mapStores } from "pinia";
+import userStore from "../store/user";
 
+export default {
+  computed: {
+    ...mapStores(userStore),
+  },
+  data() {
+    return {
+      email: "",
+      password: "",
+    };
+  },
   methods: {
-    toDashboard() {
+    logIn() {
       this.userStore.logIn(this.email, this.password);
-      console.log(Hola);
-      this.$router.push("/");
-      console.log(adeu);
     },
   },
 };
