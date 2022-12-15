@@ -1,18 +1,27 @@
 <template>
   <section
-    class="relative py-20 2xl:py-40 overflow-hidden to-pink-200 via-indigo-200 from-blue-200 bg-gradient-to-tr"
+    class="flex justify-center relative py-20 2xl:py-40 overflow-hidden to-pink-200 via-indigo-200 from-blue-200 bg-gradient-to-tr"
   >
     <div class="relative container px-4 mx-auto">
       <div class="max-w-5xl mx-auto">
         <div class="flex flex-wrap items-center -mx-4">
           <div class="w-full lg:w-1/2 px-4 mb-16 lg:mb-0">
-            <div class="max-w-md"></div>
+            <div class="max-w-md">
+              <h2
+                class="flex justify-center mb-8 text-5xl font-bold font-heading text-slate-900"
+              >
+                Welcome back !
+              </h2>
+              <p class="text-lg text-slate-700 flex justify-center">
+                <span>We are happy to see you again</span>
+              </p>
+            </div>
           </div>
           <div class="w-full lg:w-1/2 px-4">
             <div class="px-6 lg:px-20 py-12 lg:py-24 bg-indigo-300 rounded-lg">
               <form @submit.prevent="logIn" action="#">
                 <h3 class="mb-10 text-2xl text-slate-00 font-bold font-heading">
-                  Welcome back !
+                  Sign In
                 </h3>
                 <div class="flex items-center pl-6 mb-3 bg-white rounded-full">
                   <span class="inline-block pr-3 py-2 border-r border-gray-50">
@@ -95,8 +104,12 @@
                   Log In
                 </button>
                 <div>
-                  <p class="">Don't have an account?</p>
-                  <a href="/signup">Signup here</a>
+                  <p class="mt-7 flex justify-center text-slate-700">
+                    Don't have an account?
+                  </p>
+                  <a class="flex justify-center text-indigo-700" href="/signup"
+                    >Sign up here</a
+                  >
                 </div>
               </form>
             </div>
