@@ -24,25 +24,21 @@ export default defineStore("user", {
         password: password,
       });
       if (error) throw error;
-      if (data.user) { this.user = data.user;
+      if (data.user) {
+        this.user = data.user;
         this.$router.push("/");
-        
-        
-
       }
-
-      
-      
     },
 
-    persist: {
-      enabled: true,
-      strategies: [
-        {
-          key: "user",
-          storage: localStorage,
-        },
-      ],
-    },
+
+  },
+  persist: {
+    enabled: true,
+    strategies: [
+      {
+        key: "user",
+        storage: localStorage,
+      },
+    ],
   },
 });
