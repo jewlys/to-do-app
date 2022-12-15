@@ -19,12 +19,20 @@ export default defineStore("user", {
       if (error) throw error;
     },
     async logIn(email, password) {
-      const { user, error } = await supabase.auth.logIn({
+      const { data, error } = await supabase.auth.signInWithPassword({
         email: email,
         password: password,
       });
       if (error) throw error;
-      if (user) this.user = user;
+      if (data.user) { this.user = data.user;
+        this.$router.push("/");
+        
+        
+
+      }
+
+      
+      
     },
 
     persist: {

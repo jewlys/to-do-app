@@ -4,6 +4,7 @@ import Auth from "../pages/Auth.vue";
 import Landing from "../pages/Landing.vue";
 import LoginPage from "../pages/LoginPage.vue";
 
+
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
