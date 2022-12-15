@@ -4,9 +4,7 @@ import { createApp, markRaw } from "vue";
 import App from "./App.vue";
 import router from "./router";
 import "./assets/main.css";
-import './index.css';
-import 'flowbite';
-
+import "./index.css";
 
 const pinia = createPinia()
   .use(piniaPersist)
@@ -14,4 +12,3 @@ const pinia = createPinia()
     store.$router = markRaw(router);
   });
 createApp(App).use(pinia).use(router).mount("#app");
-
