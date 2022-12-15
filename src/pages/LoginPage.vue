@@ -2,7 +2,6 @@
   <section
     class="relative py-20 2xl:py-40 overflow-hidden to-pink-200 via-indigo-200 from-blue-200 bg-gradient-to-tr"
   >
-    <div></div>
     <div class="relative container px-4 mx-auto">
       <div class="max-w-5xl mx-auto">
         <div class="flex flex-wrap items-center -mx-4">
@@ -92,9 +91,13 @@
 
                 <button
                   class="py-4 w-full bg-indigo-200 hover:bg-blue-600 text-slate-900 font-bold rounded-full transition duration-200"
-                 >
+                >
                   Log In
                 </button>
+                <div>
+                  <p class="">Don't have an account?</p>
+                  <a href="/signup">Signup here</a>
+                </div>
               </form>
             </div>
           </div>
@@ -105,25 +108,23 @@
 </template>
 
 <script>
-import { mapStores } from 'pinia'
-import userStore from "../store/user"
+import { mapStores } from "pinia";
+import userStore from "../store/user";
 
 export default {
-    computed: {
-        ...mapStores(userStore)
-    },
-    data () {
+  computed: {
+    ...mapStores(userStore),
+  },
+  data() {
     return {
       email: "",
       password: "",
-   }
+    };
+  },
+  methods: {
+    logIn() {
+      this.userStore.logIn(this.email, this.password);
     },
-    methods: {
-      logIn() {
-        this.userStore.logIn(this.email,this.password)
-      }
-
-    }
-    
-
-}</script>
+  },
+};
+</script>
