@@ -1,4 +1,7 @@
 <template>
+  <!-- <div v-for="(task, index) in  tasksStore.tasks " :key="index">
+    <h1> {{ task.title }}</h1>
+  </div> -->
   <!-- Component Start -->
   <div
     class="flex flex-col w-screen h-screen overflow-auto text-gray-700 bg-gradient-to-tr from-blue-200 via-indigo-200 to-pink-200">
@@ -28,7 +31,7 @@ Here begins the huge code for the header columns
           </button>
 
         </div>
-        <TaskItem v-for="(task, index) in  " />
+        <TaskItem v-for="(task, index) in  tasksStore.getTasksbyStatus(1) " :key="index" :task="task" />
 
       </div>
       <div class="flex flex-col flex-shrink-0 w-72">
@@ -45,7 +48,7 @@ Here begins the huge code for the header columns
           </button>
 
         </div>
-        <TaskItem />
+        <TaskItem v-for="(task, index) in  tasksStore.getTasksbyStatus(2) " :key="index" :task="task" />
 
       </div>
       <div class="flex flex-col flex-shrink-0 w-72">
@@ -61,6 +64,7 @@ Here begins the huge code for the header columns
             </svg>
           </button>
         </div>
+        <TaskItem v-for="(task, index) in  tasksStore.getTasksbyStatus(3) " :key="index" :task="task" />
 
       </div>
       <div class="flex-shrink-0 w-6"></div>
@@ -82,11 +86,13 @@ Here begins the huge code for the header columns
 import NewTask from "../components/NewTask.vue";
 import TaskItem from "../components/TaskItem.vue";
 import tasksStore from "../store/task"
-import userStore from "../store/user"
 
 import { mapStores } from "pinia";
+
 export default {
   data() {
+    // we define user store inside a const
+
     return {
       newTask: NewTask,
       taskItem: TaskItem,
@@ -95,6 +101,17 @@ export default {
   components: {
     NewTask,
     TaskItem,
+  },
+
+  computed: {
+    ...mapStores(tasksStore)
+
+
+  },
+
+  mounted() {
+
+    this.tasksStore.fetchTasks()
   }
 };
 </script>

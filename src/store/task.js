@@ -6,7 +6,8 @@ import userStore from "../store/user";
 export default defineStore("tasks", {
   state() {
     return {
-      tasks: null,
+      tasks: [],
+
     };
   },
 
@@ -32,6 +33,8 @@ export default defineStore("tasks", {
         .insert({ user_id: user_id, title: title, status: status })
       if (error) throw error;
 
+      this.fetchTasks()
+
     },
 
 
@@ -42,6 +45,19 @@ export default defineStore("tasks", {
     },
 
   },
+  getters: {
+
+    getTasksbyStatus: (state) => {
+
+      return (status) => state.tasks.filter((task) => task.status === status)
+
+    },
+
+
+
+
+
+  }
 
 });
 //add actions section for the fetching of data from DB
