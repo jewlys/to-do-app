@@ -14,6 +14,8 @@ export default defineStore("tasks", {
     async fetchTasks() {
       const { data: tasks } = await supabase
 
+        //trae la info del base de datos
+
         .from("tasks")
 
         .select("*")
@@ -22,20 +24,25 @@ export default defineStore("tasks", {
 
       this.tasks = tasks;
     },
-  },
-  async addnewTask(title) {
-      //  insert en la base
-      const { error } = await supabase   
-  .from('task')
-  .insert({user_id: userStore.user.id  , title: title  , status: 1 })
-   if (error) throw error;
 
-  },
-  
-  deleteTasks(itemID) {
-    this.tasks = this.tasks.filter((object) => {
-      return object.id !==itemID;
-    })
+    async addnewTask(title, user_id, status) {
+      //  insert en la base 
+      const { error } = await supabase
+        .from('tasks')
+        .insert({ user_id: user_id, title: title, status: status })
+      if (error) throw error;
+
+    },
+
+
+    deleteTasks(itemID) {
+      this.tasks = this.tasks.filter((object) => {
+        return object.id !== itemID;
+      })
+    },
+
   },
 
 });
+//add actions section for the fetching of data from DB
+
