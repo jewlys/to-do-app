@@ -105,10 +105,10 @@ drift.load("i3sks436p5vp");
               </a>
 
               <a
-                href="#section1"
+                href="/login"
                 class="flex items-center px-6 py-3 text-gray-500 bg-gray-100 rounded-md hover:bg-gray-200 hover:text-gray-600"
               >
-                Learn More
+                Log In
               </a>
             </div>
           </div>
