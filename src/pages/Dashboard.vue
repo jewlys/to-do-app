@@ -8,7 +8,7 @@
     <div class="flex flex-grow px-10 mt-4 space-x-6 overflow-auto">
       <NewTask />
 
-      <TaskItem />
+
 
       <!-- 
 Here begins the huge code for the header columns
@@ -26,7 +26,10 @@ Here begins the huge code for the header columns
               </path>
             </svg>
           </button>
+
         </div>
+        <TaskItem v-for="(task, index) in  " />
+
       </div>
       <div class="flex flex-col flex-shrink-0 w-72">
         <div class="flex items-center flex-shrink-0 h-10 px-2">
@@ -40,7 +43,10 @@ Here begins the huge code for the header columns
               </path>
             </svg>
           </button>
+
         </div>
+        <TaskItem />
+
       </div>
       <div class="flex flex-col flex-shrink-0 w-72">
         <div class="flex items-center flex-shrink-0 h-10 px-2">
@@ -75,6 +81,10 @@ Here begins the huge code for the header columns
 <script>
 import NewTask from "../components/NewTask.vue";
 import TaskItem from "../components/TaskItem.vue";
+import tasksStore from "../store/task"
+import userStore from "../store/user"
+
+import { mapStores } from "pinia";
 export default {
   data() {
     return {
