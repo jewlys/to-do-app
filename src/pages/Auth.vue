@@ -1,31 +1,4 @@
-<script>
-import userStore from "../store/user";
-import { mapStores } from "pinia";
 
-export default {
-  data() {
-    return {
-      email: "",
-      password: "",
-      confirmPassword: "",
-    };
-  },
-  methods: {
-    sendForm() {
-      this.userStore.signUp(this.email, this.password);
-      this.$router.push("/login");
-    },
-    openPopup: function () {
-      if (this.email && this.password) {
-        return alert("Please check your email");
-      }
-    },
-  },
-  computed: {
-    ...mapStores(userStore),
-  },
-};
-</script>
 
 <template>
   <section
@@ -146,3 +119,32 @@ export default {
     </div>
   </section>
 </template>
+
+<script>
+import userStore from "../store/user";
+import { mapStores } from "pinia";
+
+export default {
+  data() {
+    return {
+      email: "",
+      password: "",
+      confirmPassword: "",
+    };
+  },
+  methods: {
+    sendForm() {
+      this.userStore.signUp(this.email, this.password);
+      this.$router.push("/login");
+    },
+    openPopup: function () {
+      if (this.email && this.password) {
+        return alert("Please check your email");
+      }
+    },
+  },
+  computed: {
+    ...mapStores(userStore),
+  },
+};
+</script>
