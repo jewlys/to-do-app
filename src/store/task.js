@@ -38,11 +38,21 @@ export default defineStore("tasks", {
     },
 
 
-    deleteTasks(itemID) {
-      this.tasks = this.tasks.filter((object) => {
-        return object.id !== itemID;
-      })
+    async deleteTasks(itemID) {
+
+      const { error } = await supabase
+        .from('tasks')
+        .delete()
+        .eq('id', itemID)
+
+      this.fetchTasks()
+
     },
+
+    // const { error } = await supabase
+    //   .from('tasks')
+    //   .delete()
+    //   .eq('task', 1)
 
   },
   getters: {
@@ -53,6 +63,15 @@ export default defineStore("tasks", {
 
     },
 
+    numberOfTasksPerColumn() {
+
+    }
+
+    // Trying it as a getter
+    // removeTask(index) {
+    //   this.task.splice(index, 1)
+
+    // }
 
 
 
