@@ -318,7 +318,7 @@ drift.load("i3sks436p5vp");
               </div>
               <div class="flex flex-col items-start justify-center">
                 <h4 class="font-bold text-gray-800">Cristian Perdomo</h4>
-                <p class="text-gray-600">Chief of Anxiety</p>
+                <p class="text-gray-600">Chief of MayDay</p>
               </div>
             </div>
             <blockquote class="mt-8 text-lg text-gray-500">
