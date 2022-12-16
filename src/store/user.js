@@ -26,7 +26,7 @@ export default defineStore("user", {
       if (error) throw error;
       if (data.user) {
         this.user = data.user;
-        this.$router.push("/");
+        this.$router.push("/dashboard");
       }
     },
 
