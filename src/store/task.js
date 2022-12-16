@@ -48,33 +48,35 @@ export default defineStore("tasks", {
       this.fetchTasks()
 
     },
+    // async updateTask(title, user_id, status) {
+    //   const { error } = await supabase
+    //     .from('tasks')
+    //     .update({ user_id: user_id, title: title, status: status })
+    //     .eq('id', itemID)
 
-    // const { error } = await supabase
-    //   .from('tasks')
-    //   .delete()
-    //   .eq('task', 1)
+    //   if (error) throw error;
 
-  },
-  getters: {
+    // },
+    getters: {
 
-    getTasksbyStatus: (state) => {
+      getTasksbyStatus: (state) => {
 
-      return (status) => state.tasks.filter((task) => task.status === status)
+        return (status) => state.tasks.filter((task) => task.status === status)
 
-    },
+      },
 
-    numberOfTasksPerColumn() {
+      numberOfTasksPerColumn() {
+
+      },
+
+      // Trying it as a getter
+      // removeTask(index) {
+      //   this.task.splice(index, 1)
+
+      // }
+
 
     }
-
-    // Trying it as a getter
-    // removeTask(index) {
-    //   this.task.splice(index, 1)
-
-    // }
-
-
-
 
   }
 

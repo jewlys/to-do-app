@@ -13,7 +13,7 @@
                     d="M10 6a2 2 0 110-4 2 2 0 010 4zM10 12a2 2 0 110-4 2 2 0 010 4zM10 18a2 2 0 110-4 2 2 0 010 4z" />
             </svg>
             <div class="dropdown-content">
-                <a href="#">Edit</a>
+                <a>Edit</a>
                 <a @click="deleteTasks()" href="#">Delete</a>
 
 
@@ -69,6 +69,13 @@ export default {
 
 
         },
+
+        // updateTask() {
+
+        //     this.taskStore.updateTask(this.task.id)
+        // },
+
+
 
         chooseStatus() {
 
