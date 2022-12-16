@@ -19,7 +19,7 @@ Here begins the huge code for the header columns
 
       <div class="flex flex-col flex-shrink-0 w-72">
         <div class="flex items-center flex-shrink-0 h-10 px-2">
-          <span class="block text-sm font-semibold">Backlog</span>
+          <span class="block text-sm font-semibold">To do</span>
           <span
             class="flex items-center justify-center w-5 h-5 ml-2 text-sm font-semibold text-indigo-500 bg-white rounded bg-opacity-30">6</span>
           <button
@@ -36,7 +36,7 @@ Here begins the huge code for the header columns
       </div>
       <div class="flex flex-col flex-shrink-0 w-72">
         <div class="flex items-center flex-shrink-0 h-10 px-2">
-          <span class="block text-sm font-semibold">Ready</span>
+          <span class="block text-sm font-semibold">Doing</span>
           <span
             class="flex items-center justify-center w-5 h-5 ml-2 text-sm font-semibold text-indigo-500 bg-white rounded bg-opacity-30">3</span>
           <button
@@ -53,7 +53,7 @@ Here begins the huge code for the header columns
       </div>
       <div class="flex flex-col flex-shrink-0 w-72">
         <div class="flex items-center flex-shrink-0 h-10 px-2">
-          <span class="block text-sm font-semibold">Doing</span>
+          <span class="block text-sm font-semibold">Done</span>
           <span
             class="flex items-center justify-center w-5 h-5 ml-2 text-sm font-semibold text-indigo-500 bg-white rounded bg-opacity-30">2</span>
           <button
