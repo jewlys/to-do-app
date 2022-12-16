@@ -99,7 +99,7 @@ export default {
         this.status
       );
       if (this.title.length < 3) {
-        return alert("Please enter more than 3 caracthers");
+        return alert("Please enter more than 3 characters");
       }
 
       this.toggleModal();
