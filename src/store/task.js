@@ -10,7 +10,7 @@ export default defineStore("tasks", {
 
     };
   },
-
+  //fetch from db
   actions: {
     async fetchTasks() {
       const { data: tasks } = await supabase
@@ -25,7 +25,17 @@ export default defineStore("tasks", {
 
       this.tasks = tasks;
     },
-
+    //update the task
+    async updateTask(title, status, itemID) {
+      console.log(title, status, itemID)
+      const { error } = await supabase
+        .from('tasks')
+        .update({ title: title, status: status })
+        .eq('id', itemID)
+        .select()
+      this.fetchTasks()
+    },
+    //add new task 
     async addnewTask(title, user_id, status) {
       //  insert en la base 
       const { error } = await supabase
