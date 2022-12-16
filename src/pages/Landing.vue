@@ -1,53 +1,53 @@
 <script>
-("use strict");
+// ("use strict");
 
-!(function () {
-  const t = (window.driftt = window.drift = window.driftt || []);
-  if (!t.init) {
-    if (t.invoked)
-      return void (
-        window.console &&
-        console.error &&
-        console.error("Drift snippet included twice.")
-      );
-    (t.invoked = !0),
-      (t.methods = [
-        "identify",
-        "config",
-        "track",
-        "reset",
-        "debug",
-        "show",
-        "ping",
-        "page",
-        "hide",
-        "off",
-        "on",
-      ]),
-      (t.factory = function (e) {
-        return function () {
-          var n = Array.prototype.slice.call(arguments);
-          return n.unshift(e), t.push(n), t;
-        };
-      }),
-      t.methods.forEach(function (e) {
-        t[e] = t.factory(e);
-      }),
-      (t.load = function (t) {
-        var e = 3e5,
-          n = Math.ceil(new Date() / e) * e,
-          o = document.createElement("script");
-        (o.type = "text/javascript"),
-          (o.async = !0),
-          (o.crossorigin = "anonymous"),
-          (o.src = "https://js.driftt.com/include/" + n + "/" + t + ".js");
-        var i = document.getElementsByTagName("script")[0];
-        i.parentNode.insertBefore(o, i);
-      });
-  }
-})();
-drift.SNIPPET_VERSION = "0.3.1";
-drift.load("i3sks436p5vp");
+// !(function () {
+//   const t = (window.driftt = window.drift = window.driftt || []);
+//   if (!t.init) {
+//     if (t.invoked)
+//       return void (
+//         window.console &&
+//         console.error &&
+//         console.error("Drift snippet included twice.")
+//       );
+//     (t.invoked = !0),
+//       (t.methods = [
+//         "identify",
+//         "config",
+//         "track",
+//         "reset",
+//         "debug",
+//         "show",
+//         "ping",
+//         "page",
+//         "hide",
+//         "off",
+//         "on",
+//       ]),
+//       (t.factory = function (e) {
+//         return function () {
+//           var n = Array.prototype.slice.call(arguments);
+//           return n.unshift(e), t.push(n), t;
+//         };
+//       }),
+//       t.methods.forEach(function (e) {
+//         t[e] = t.factory(e);
+//       }),
+//       (t.load = function (t) {
+//         var e = 3e5,
+//           n = Math.ceil(new Date() / e) * e,
+//           o = document.createElement("script");
+//         (o.type = "text/javascript"),
+//           (o.async = !0),
+//           (o.crossorigin = "anonymous"),
+//           (o.src = "https://js.driftt.com/include/" + n + "/" + t + ".js");
+//         var i = document.getElementsByTagName("script")[0];
+//         i.parentNode.insertBefore(o, i);
+//       });
+//   }
+// })();
+// drift.SNIPPET_VERSION = "0.3.1";
+// drift.load("i3sks436p5vp");
 </script>
 
 <template>
@@ -105,10 +105,10 @@ drift.load("i3sks436p5vp");
               </a>
 
               <a
-                href="#section1"
+                href="/login"
                 class="flex items-center px-6 py-3 text-gray-500 bg-gray-100 rounded-md hover:bg-gray-200 hover:text-gray-600"
               >
-                Learn More
+                Log In
               </a>
             </div>
           </div>
