@@ -1,4 +1,6 @@
 <template>
+
+  <AppHeader />
   <!-- <div v-for="(task, index) in  tasksStore.tasks " :key="index">
     <h1> {{ task.title }}</h1>
   </div> -->
@@ -9,7 +11,7 @@
       <h1 class="text-2xl font-bold">Team Project Board</h1>
     </div>
     <div class="flex flex-grow px-10 mt-4 space-x-6 overflow-auto">
-      <NewTask />
+
 
 
 
@@ -17,7 +19,7 @@
 Here begins the huge code for the header columns
 -->
 
-      <div class="flex flex-col flex-shrink-0 w-72">
+      <div id="dropzone1" class="flex flex-col flex-shrink-0 w-72">
         <div class="flex items-center flex-shrink-0 h-10 px-2">
           <span class="block text-sm font-semibold">To do</span>
           <span
@@ -38,7 +40,7 @@ Here begins the huge code for the header columns
           class="relative flex flex-col items-center p-4 mt-3 bg-slate-200 rounded-lg cursor-pointer bg-opacity-90 group hover:bg-opacity-100" />
 
       </div>
-      <div class="flex flex-col flex-shrink-0 w-72">
+      <div id="dropzone2" class="flex flex-col flex-shrink-0 w-72">
         <div class="flex items-center flex-shrink-0 h-10 px-2">
           <span class="block text-sm font-semibold">Doing</span>
           <span
@@ -58,7 +60,7 @@ Here begins the huge code for the header columns
         <NewTask
           class="relative flex flex-col items-center p-4 mt-3 bg-slate-200 rounded-lg cursor-pointer bg-opacity-90 group hover:bg-opacity-100" />
       </div>
-      <div class="flex flex-col flex-shrink-0 w-72">
+      <div id="dropzone1" class="flex flex-col flex-shrink-0 w-72">
         <div class="flex items-center flex-shrink-0 h-10 px-2">
           <span class="block text-sm font-semibold">Done</span>
           <span
@@ -87,7 +89,7 @@ Here begins the huge code for the header columns
 
 
 
-
+  <Footer />
 
   <!-- Component End -->
 </template>
@@ -96,6 +98,9 @@ Here begins the huge code for the header columns
 import NewTask from "../components/NewTask.vue";
 import TaskItem from "../components/TaskItem.vue";
 import tasksStore from "../store/task"
+import Draggable from "vue3-draggable";
+import AppHeader from "../components/AppHeader.vue"
+import Footer from "../components/Footer.vue"
 
 import { mapStores } from "pinia";
 
@@ -113,7 +118,12 @@ export default {
   components: {
     NewTask,
     TaskItem,
+    Draggable,
+    AppHeader,
+    Footer,
   },
+
+
   methods: {
 
 
@@ -128,6 +138,11 @@ export default {
 
     deleteTasks(itemID) {
 
+
+
+    },
+
+    updateTask(itemID) {
 
 
     },
