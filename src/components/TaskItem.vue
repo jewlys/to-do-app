@@ -13,16 +13,15 @@
                     d="M10 6a2 2 0 110-4 2 2 0 010 4zM10 12a2 2 0 110-4 2 2 0 010 4zM10 18a2 2 0 110-4 2 2 0 010 4z" />
             </svg>
             <div class="dropdown-content">
-                <!-- <a href="#" @click="$emit('delete-task')">Edit</a>
-                <a href="#" @click="tasks.splice(index, 1)">Delete</a>
-                <a href="#" @click="remove(this.task)">Delete</a> -->
+                <a href="#">Edit</a>
+                <a @click="deleteTasks()" href="#">Delete</a>
 
 
             </div>
         </button>
 
         <span class="flex items-center h-6 px-3 text-xs font-semibold text-pink-500 bg-pink-100 rounded-full">{{
-                task.status
+                chooseStatus()
         }}</span>
 
 
@@ -39,16 +38,59 @@
 </template>
 
 <script>
+import tasksStore from "../store/task"
+import { mapStores } from "pinia";
+
+
 
 export default {
     props: {
         task: Object
     },
+
+
+
+    computed: {
+        ...mapStores(tasksStore)
+
+
+
+    },
     methods: {
 
-        // remove: function (task) {
-        //     this.tasks.splice(this.tasks.indexOf(task), 1);
-        // },
+
+        deleteTasks() {
+            this.tasksStore.deleteTasks(this.task.id)
+            console.log(this.tasksStore.deleteTasks(this.task.id)
+            )
+
+
+
+
+
+        },
+
+        chooseStatus() {
+
+            if (this.task.status === 1)
+
+                return "new"
+
+            else if (this.task.status === 2)
+
+                return "In progress"
+
+            else if (this.task.status === 3)
+
+                return "Done"
+
+
+        },
+
+
+        //     remove: function (task) {
+        //         this.tasks.splice(this.tasks.indexOf(task), 1);
+        //  },
     }
 }
 </script>
