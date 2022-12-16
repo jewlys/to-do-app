@@ -44,6 +44,7 @@
       <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
       </svg>
+
     </button>
 
     <div v-if="showModal"
@@ -67,13 +68,15 @@
           </div>
           <!--body-->
           <div class="relative p-6 flex-auto">
-            <label for="Title" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">{{ title }}</label>
+            <label for="Title" class="block mb-2 text-sm font-medium text-gray-900 ">Choose a
+              title</label>
             <input v-model="title" type="select" id="Title"
-              class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light"
+              class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
               required>
-            <label for="cars" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Choose a
+            <label for="cars" class=" block mb-2 text-sm font-medium text-gray-900">Choose a
               Status</label>
-            <select v-model="status" id="status" name="status">
+            <select v-model="status" id="status" name="status"
+              class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
               <option value=1>New</option>
               <option value=2>In Progress</option>
               <option value=3>Done</option>
@@ -83,14 +86,14 @@
 
           </div>
           <!--footer-->
-          <div class="flex items-center justify-end p-6 border-t border-solid border-slate-200 rounded-b">
+          <div class=" flex items-center justify-end p-6 border-t border-solid border-slate-200 rounded-b">
             <button
-              class="text-red-500 bg-transparent border border-solid border-red-500 hover:bg-red-500 hover:text-white active:bg-red-600 font-bold uppercase text-sm px-6 py-3 rounded outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+              class="text-purple-500 bg-transparent border border-solid border-purple-500 hover:bg-purple-500 hover:text-white active:bg-purple-600 font-bold uppercase text-sm px-6 py-3 rounded outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
               type="button" v-on:click="toggleModal()">
               Close
             </button>
             <button
-              class="text-red-500 background-transparent font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+              class="text-green-500 background-transparent font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
               type="button" v-on:click="taskStoreGetter()">
               Save Changes
             </button>
@@ -140,22 +143,7 @@ export default {
       this.showModal = !this.showModal;
     },
 
-    chooseStatus() {
 
-      if (this.status = 1)
-
-        return "new"
-
-      else if (this.status = 2)
-
-        return "In progress"
-
-      else if (this.status = 3)
-
-        return "Done"
-
-
-    },
 
     //function to get the info from user store and call the function of Taskstore
 
