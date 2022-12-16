@@ -4,15 +4,12 @@
   </div> -->
   <!-- Component Start -->
   <div
-    class="flex flex-col w-screen h-screen overflow-auto text-gray-700 bg-gradient-to-tr from-blue-200 via-indigo-200 to-pink-200">
+    class="flex flex-col w-screen h-screen overflow-auto text-gray-700 bg-gradient-to-tr from-blue-200 via-indigo-200 to-pink-200"
+  >
     <div class="px-10 mt-6">
       <h1 class="text-2xl font-bold">Team Project Board</h1>
     </div>
     <div class="flex flex-grow px-10 mt-4 space-x-6 overflow-auto">
-      <NewTask />
-
-
-
       <!-- 
 Here begins the huge code for the header columns
 -->
@@ -21,9 +18,9 @@ Here begins the huge code for the header columns
         <div class="flex items-center flex-shrink-0 h-10 px-2">
           <span class="block text-sm font-semibold">To do</span>
           <span
-            class="flex items-center justify-center w-5 h-5 ml-2 text-sm font-semibold text-indigo-500 bg-white rounded bg-opacity-30">{{
-                tasksStore.getTasksbyStatus(1).length
-            }}</span>
+            class="flex items-center justify-center w-5 h-5 ml-2 text-sm font-semibold text-indigo-500 bg-white rounded bg-opacity-30"
+            >{{ tasksStore.getTasksbyStatus(1).length }}</span
+          >
           <!--  example comment <button
             class="flex items-center justify-center w-6 h-6 ml-auto text-indigo-500 rounded hover:bg-indigo-500 hover:text-indigo-100">
             <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -31,20 +28,23 @@ Here begins the huge code for the header columns
               </path>
             </svg>
           </button> -->
-
         </div>
-        <TaskItem v-for="(task, index) in  tasksStore.getTasksbyStatus(1) " :key="index" :task="task" />
+        <TaskItem
+          v-for="(task, index) in tasksStore.getTasksbyStatus(1)"
+          :key="index"
+          :task="task"
+        />
         <NewTask
-          class="relative flex flex-col items-center p-4 mt-3 bg-slate-200 rounded-lg cursor-pointer bg-opacity-90 group hover:bg-opacity-100" />
-
+          class="relative flex flex-col items-center p-4 mt-3 bg-slate-200 rounded-lg cursor-pointer bg-opacity-90 group hover:bg-opacity-100"
+        />
       </div>
       <div class="flex flex-col flex-shrink-0 w-72">
         <div class="flex items-center flex-shrink-0 h-10 px-2">
           <span class="block text-sm font-semibold">Doing</span>
           <span
-            class="flex items-center justify-center w-5 h-5 ml-2 text-sm font-semibold text-indigo-500 bg-white rounded bg-opacity-30">{{
-                tasksStore.getTasksbyStatus(2).length
-            }}</span>
+            class="flex items-center justify-center w-5 h-5 ml-2 text-sm font-semibold text-indigo-500 bg-white rounded bg-opacity-30"
+            >{{ tasksStore.getTasksbyStatus(2).length }}</span
+          >
           <!-- <button
             class="flex items-center justify-center w-6 h-6 ml-auto text-indigo-500 rounded hover:bg-indigo-500 hover:text-indigo-100">
              <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -52,19 +52,23 @@ Here begins the huge code for the header columns
               </path>
             </svg> 
           </button> -->
-
         </div>
-        <TaskItem v-for="(task, index) in  tasksStore.getTasksbyStatus(2) " :key="index" :task="task" />
+        <TaskItem
+          v-for="(task, index) in tasksStore.getTasksbyStatus(2)"
+          :key="index"
+          :task="task"
+        />
         <NewTask
-          class="relative flex flex-col items-center p-4 mt-3 bg-slate-200 rounded-lg cursor-pointer bg-opacity-90 group hover:bg-opacity-100" />
+          class="relative flex flex-col items-center p-4 mt-3 bg-slate-200 rounded-lg cursor-pointer bg-opacity-90 group hover:bg-opacity-100"
+        />
       </div>
       <div class="flex flex-col flex-shrink-0 w-72">
         <div class="flex items-center flex-shrink-0 h-10 px-2">
           <span class="block text-sm font-semibold">Done</span>
           <span
-            class="flex items-center justify-center w-5 h-5 ml-2 text-sm font-semibold text-indigo-500 bg-white rounded bg-opacity-30">{{
-                tasksStore.getTasksbyStatus(3).length
-            }}</span>
+            class="flex items-center justify-center w-5 h-5 ml-2 text-sm font-semibold text-indigo-500 bg-white rounded bg-opacity-30"
+            >{{ tasksStore.getTasksbyStatus(3).length }}</span
+          >
           <!-- <button
             class="flex items-center justify-center w-6 h-6 ml-auto text-indigo-500 rounded hover:bg-indigo-500 hover:text-indigo-100">
             <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -73,21 +77,20 @@ Here begins the huge code for the header columns
             </svg>
           </button> -->
         </div>
-        <TaskItem v-for="(task, index) in  tasksStore.getTasksbyStatus(3) " :key="index" :task="task" />
+        <TaskItem
+          v-for="(task, index) in tasksStore.getTasksbyStatus(3)"
+          :key="index"
+          :task="task"
+        />
         <NewTask
-          class="relative flex flex-col items-center p-4 mt-3 bg-slate-200 rounded-lg cursor-pointer bg-opacity-90 group hover:bg-opacity-100" />
+          class="relative flex flex-col items-center p-4 mt-3 bg-slate-200 rounded-lg cursor-pointer bg-opacity-90 group hover:bg-opacity-100"
+        />
       </div>
       <div class="flex-shrink-0 w-6"></div>
     </div>
-
   </div>
 
-
   <!-- Component End -->
-
-
-
-
 
   <!-- Component End -->
 </template>
@@ -95,7 +98,7 @@ Here begins the huge code for the header columns
 <script>
 import NewTask from "../components/NewTask.vue";
 import TaskItem from "../components/TaskItem.vue";
-import tasksStore from "../store/task"
+import tasksStore from "../store/task";
 
 import { mapStores } from "pinia";
 
@@ -106,17 +109,14 @@ export default {
     return {
       newTask: NewTask,
       taskItem: TaskItem,
-    }
+    };
   },
-
 
   components: {
     NewTask,
     TaskItem,
   },
   methods: {
-
-
     //    deleteThisRow: function (index) {
     //     this.tasks.splice(index, 1);
     //  },
@@ -126,34 +126,18 @@ export default {
 
     //   },
 
-    deleteTasks(itemID) {
-
-
-
-    },
-
-
-
-
+    deleteTasks(itemID) {},
   },
   computed: {
-    ...mapStores(tasksStore)
-
-
+    ...mapStores(tasksStore),
   },
 
   ColumTotalsByStatus() {
-    return this.tasksStore.tasks.status
-
-
+    return this.tasksStore.tasks.status;
   },
 
-
-
-
   mounted() {
-
-    this.tasksStore.fetchTasks()
-  }
+    this.tasksStore.fetchTasks();
+  },
 };
 </script>
