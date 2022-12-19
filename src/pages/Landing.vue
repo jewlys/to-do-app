@@ -1,4 +1,4 @@
-<script>//comment
+<script>//comments
 ("use strict");
 
 !(function () {
