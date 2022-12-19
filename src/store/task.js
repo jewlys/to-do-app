@@ -1,7 +1,7 @@
 import { defineStore } from "pinia";
 
 import { supabase } from "../supabase";
-import userStore from "../store/user";
+import   { userStore } from "../store/user";
 
 export default defineStore("tasks", {
   state() {
