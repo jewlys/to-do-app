@@ -6,7 +6,8 @@ import   { userStore } from "../store/user";
 export default defineStore("tasks", {
   state() {
     return {
-      tasks: null,
+      tasks: [],
+
     };
   },
 
@@ -32,16 +33,50 @@ export default defineStore("tasks", {
         .insert({ user_id: user_id, title: title, status: status })
       if (error) throw error;
 
+      this.fetchTasks()
+
     },
 
 
-    deleteTasks(itemID) {
-      this.tasks = this.tasks.filter((object) => {
-        return object.id !== itemID;
-      })
+    async deleteTasks(itemID) {
+
+      const { error } = await supabase
+        .from('tasks')
+        .delete()
+        .eq('id', itemID)
+
+      this.fetchTasks()
+
     },
+
+    // const { error } = await supabase
+    //   .from('tasks')
+    //   .delete()
+    //   .eq('task', 1)
 
   },
+  getters: {
+
+    getTasksbyStatus: (state) => {
+
+      return (status) => state.tasks.filter((task) => task.status === status)
+
+    },
+
+    numberOfTasksPerColumn() {
+
+    }
+
+    // Trying it as a getter
+    // removeTask(index) {
+    //   this.task.splice(index, 1)
+
+    // }
+
+
+
+
+  }
 
 });
 //add actions section for the fetching of data from DB

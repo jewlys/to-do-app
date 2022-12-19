@@ -4,12 +4,11 @@ import Auth from "../pages/Auth.vue";
 import Landing from "../pages/Landing.vue";
 import LoginPage from "../pages/LoginPage.vue";
 
-
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
-      path: "/",
+      path: "/dashboard",
       component: Dashboard,
     },
     {
@@ -17,7 +16,7 @@ const router = createRouter({
       component: Auth,
     },
     {
-      path: "/landing",
+      path: "/",
       component: Landing,
     },
     {
