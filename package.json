@@ -22,7 +22,9 @@
     "pinia-plugin-persist": "^1.0.0",
     "tw-elements": "^1.0.0-alpha13",
     "vue": "^3.2.45",
+    "vue-burger-menu": "^2.0.5",
     "vue-router": "^4.1.6",
+    "vue3-burger-menu": "^1.1.1",
     "vue3-draggable": "^2.0.9"
   },
   "devDependencies": {
