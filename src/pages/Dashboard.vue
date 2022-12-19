@@ -13,8 +13,8 @@
     <div class="flex flex-grow px-10 mt-4 space-x-6 overflow-auto">
       <!-- 
 Drop zone begins  for column1-->
-      <div id="drop-zone" class="flex flex-col flex-shrink-0 w-72 drag-el" :key="index" draggable
-        @drop="onDrop($event, 1)" @dragover.prevent @dragenter.prevent>
+      <div id="dropzone" class="  flex flex-col flex-shrink-0 w-72 drag-el" :key="index" @drop="onDrop($event, 1)"
+        @dragover.prevent @dragenter.prevent>
         <div class="flex items-center flex-shrink-0 h-10 px-2">
           <span class="block text-sm font-semibold">To do</span>
           <span
@@ -25,15 +25,15 @@ Drop zone begins  for column1-->
 
         </div>
 
-        <TaskItem v-for="(task, index) in tasksStore.getTasksbyStatus(1)" :key="index" :task="task" class=""
+        <TaskItem v-for="(task, index) in tasksStore.getTasksbyStatus(1)" :key="index" :task="task" class="card"
           draggable="true" @dragstart="startDrag($event, task.id)" />
         <!--- Drop zone begins  for column2-->
 
         <NewTask
-          class="relative flex flex-col items-center p-4 mt-3 bg-slate-200 rounded-lg cursor-pointer bg-opacity-90 group hover:bg-opacity-100" />
+          class="  relative flex flex-col items-center p-4 mt-3 bg-slate-200 rounded-lg cursor-pointer bg-opacity-90 group hover:bg-opacity-100" />
       </div>
-      <div id="drop-zone" class="flex flex-col flex-shrink-0 w-72 drag-el" :key="index" draggable
-        @drop="onDrop($event, 2)" @dragover.prevent @dragenter.prevent>
+      <div id="dropzone" class=" flex flex-col flex-shrink-0 w-72 drag-el" :key="index" @drop="onDrop($event, 2)"
+        @dragover.prevent @dragenter.prevent>
         <div class="flex items-center flex-shrink-0 h-10 px-2">
           <span class="block text-sm font-semibold">Doing</span>
           <span
@@ -42,12 +42,14 @@ Drop zone begins  for column1-->
             }}</span>
 
         </div>
-        <TaskItem v-for="(task, index) in tasksStore.getTasksbyStatus(2)" :key="index" :task="task" />
+        <TaskItem v-for="(task, index) in tasksStore.getTasksbyStatus(2)" :key="index" :task="task" class="card"
+          draggable="true" />
         <NewTask
           class="relative flex flex-col items-center p-4 mt-3 bg-slate-200 rounded-lg cursor-pointer bg-opacity-90 group hover:bg-opacity-100" />
       </div>
-      <div id="drop-zone" class="flex flex-col flex-shrink-0 w-72 drag-el" :key="index" draggable
-        @drop="onDrop($event, 3)" @dragover.prevent @dragenter.prevent>
+
+      <div id="dropzone" class="  flex flex-col flex-shrink-0 w-72 drag-el" :key="index" @drop="onDrop($event, 3)"
+        @dragover.prevent @dragenter.prevent>
         <div class="flex items-center flex-shrink-0 h-10 px-2">
           <span class="block text-sm font-semibold">Done</span>
           <span
@@ -56,14 +58,17 @@ Drop zone begins  for column1-->
             }}</span>
 
         </div>
-        <TaskItem v-for="(task, index) in tasksStore.getTasksbyStatus(3)" :key="index" :task="task" />
+        <TaskItem v-for="(task, index) in tasksStore.getTasksbyStatus(3)" :key="index" :task="task" class="card"
+          draggable="true" />
 
 
         <NewTask
           class="relative flex flex-col items-center p-4 mt-3 bg-slate-200 rounded-lg cursor-pointer bg-opacity-90 group hover:bg-opacity-100" />
       </div>
+
       <div class="flex-shrink-0 w-6"></div>
     </div>
+
   </div>
 
 
@@ -116,23 +121,57 @@ export default {
 
     deleteTasks(itemID) { },
 
-    updateTask() { },
+    updateTask() {
+
+
+    },
     startDrag(evt, taskid) {
       evt.dataTransfer.dropEffect = 'move'
       evt.dataTransfer.effectAllowed = 'move'
+      setTimeout(() => {
+        evt.target.classList.add('hide');
+      }, 1);
       evt.dataTransfer.setData('itemID', taskid)
-      console.log
       // let finalStatus = tasksStore.getTasksbyStatus(1)
       // return finalStatus
+
       this.updateTask()
 
     },
     onDrop(evt, dropzone) {
       const itemID = evt.dataTransfer.getData('itemID')
-      if (evt.target.id == 'drop-zone')
+      if (evt.target.id == 'dropzone')
         evt.target.append(document.getElementById("taskitem"));
       evt.preventDefault();
+      this.updateTask()
 
+
+      // for manipulating dropzone
+      const dropzones = document.querySelectorAll('#dropzone');
+
+      dropzones.forEach(dropzone => {
+        dropzone.addEventListener('dragenter', dragEnter)
+        dropzone.addEventListener('dragover', dragOver);
+        dropzone.addEventListener('dragleave', dragLeave);
+        dropzone.addEventListener('drop', drop);
+      });
+
+      function dragEnter(e) {
+        e.target.classList.add('drag-over');
+      }
+
+      function dragOver(e) {
+        e.target.classList.add('drag-over');
+      }
+
+      function dragLeave(e) {
+        e.target.classList.remove('drag-over');
+      }
+
+      function drop(e) {
+        e.target.classList.remove('drag-over');
+
+      }
 
       console.log(dropzone, itemID)
       // let finalStatus = this.tasksStore.tasks.status
@@ -177,6 +216,15 @@ export default {
 
 
 <style scoped>
+:hover#drop-zone {}
 
+:hover.card {}
+
+.drag-over {
+  transition: all 200ms ease;
+  vertical-align: top;
+
+  border: dashed 3px rgb(13, 181, 80);
+}
 </style>
 
