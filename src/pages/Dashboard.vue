@@ -1,5 +1,4 @@
 <template>
-  <AppHeader />
   <!-- <div v-for="(task, index) in  tasksStore.tasks " :key="index">
     <h1> {{ task.title }}</h1>
   </div> -->
