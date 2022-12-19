@@ -199,9 +199,6 @@ export default {
   cursor: pointer;
 }
 
-.dropdown {
-}
-
 .dropdown-content {
   display: none;
   position: absolute;
