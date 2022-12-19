@@ -1,3 +1,6 @@
+
+
+
 <template>
 
 
@@ -19,18 +22,19 @@
     </footer>
 
 
-</template>
+</template> 
+
+
 
 
 <script>
+import tasksStore from "../store/task";
 
 export default {
-
-    data() {
-
-
-    }
-}
+    components: {
+        tasksStore,
+    },
+};
 
 
 </script>
