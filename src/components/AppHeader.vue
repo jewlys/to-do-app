@@ -9,7 +9,7 @@
 
     <!-- <input class="flex items-center h-10 px-4 ml-10 text-sm bg-gray-200 rounded-full focus:outline-none focus:ring"
             type="" placeholder="Create a new task">  -->
-    <!-- <Slide right> -->
+       <Slide /> 
       <div class="ml-10">
         <a
           class="mx-2 text-sm font-semibold text-gray-600 hover:text-indigo-700"
@@ -27,13 +27,13 @@
           >Profile</a
         >
       </div>
-    <!-- </Slide> -->
+    
 
     <signOut />
   </div>
 </template>
 
-<!-- <script>
+<script>
 import { Slide } from "vue3-burger-menu";
 
 export default {
@@ -41,5 +41,5 @@ export default {
     Slide,
   },
 };
-</script> -->
+</script>
 <style></style>
