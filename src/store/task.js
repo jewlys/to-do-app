@@ -7,8 +7,7 @@ export default defineStore("tasks", {
   state() {
     return {
       tasks: [],
-      userStore
-
+      userStore,
     };
   },
   //fetch from db
@@ -28,67 +27,48 @@ export default defineStore("tasks", {
     },
     //update the task
     async updateTask(title, status, itemID) {
-      console.log(title, status, itemID)
+      console.log(title, status, itemID);
       const { error } = await supabase
-        .from('tasks')
+        .from("tasks")
         .update({ title: title, status: status })
-        .eq('id', itemID)
-        .select()
-      this.fetchTasks()
+        .eq("id", itemID)
+        .select();
+      this.fetchTasks();
     },
-    //add new task 
+    //add new task
     async addnewTask(title, user_id, status) {
-      //  insert en la base 
+      //  insert en la base
       const { error } = await supabase
-        .from('tasks')
-        .insert({ user_id: user_id, title: title, status: status })
+        .from("tasks")
+        .insert({ user_id: user_id, title: title, status: status });
       if (error) throw error;
 
-      this.fetchTasks()
-
+      this.fetchTasks();
     },
 
-
     async deleteTasks(itemID) {
+      const { error } = await supabase.from("tasks").delete().eq("id", itemID);
 
-      const { error } = await supabase
-        .from('tasks')
-        .delete()
-        .eq('id', itemID)
-
-      this.fetchTasks()
-
+      this.fetchTasks();
     },
 
     // const { error } = await supabase
     //   .from('tasks')
     //   .delete()
     //   .eq('task', 1)
-
   },
   getters: {
-
     getTasksbyStatus: (state) => {
-
-      return (status) => state.tasks.filter((task) => task.status === status)
-
+      return (status) => state.tasks.filter((task) => task.status === status);
     },
 
-    numberOfTasksPerColumn() {
-
-    }
+    numberOfTasksPerColumn() { },
 
     // Trying it as a getter
     // removeTask(index) {
     //   this.task.splice(index, 1)
 
     // }
-
-
-
-
-  }
-
+  },
 });
 //add actions section for the fetching of data from DB
-
