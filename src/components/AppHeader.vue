@@ -16,6 +16,7 @@
       <a class="mx-2 text-sm font-semibold text-gray-600 hover:text-indigo-700" href="#">Profile</a>
     </div>
 
+    
   </Slide>
 
 
