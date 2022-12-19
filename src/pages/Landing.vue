@@ -1,4 +1,54 @@
+<script>
+("use strict");
 
+!(function () {
+  const t = (window.driftt = window.drift = window.driftt || []);
+  if (!t.init) {
+    if (t.invoked)
+      return void (
+        window.console &&
+        console.error &&
+        console.error("Drift snippet included twice.")
+      );
+    (t.invoked = !0),
+      (t.methods = [
+        "identify",
+        "config",
+        "track",
+        "reset",
+        "debug",
+        "show",
+        "ping",
+        "page",
+        "hide",
+        "off",
+        "on",
+      ]),
+      (t.factory = function (e) {
+        return function () {
+          var n = Array.prototype.slice.call(arguments);
+          return n.unshift(e), t.push(n), t;
+        };
+      }),
+      t.methods.forEach(function (e) {
+        t[e] = t.factory(e);
+      }),
+      (t.load = function (t) {
+        var e = 3e5,
+          n = Math.ceil(new Date() / e) * e,
+          o = document.createElement("script");
+        (o.type = "text/javascript"),
+          (o.async = !0),
+          (o.crossorigin = "anonymous"),
+          (o.src = "https://js.driftt.com/include/" + n + "/" + t + ".js");
+        var i = document.getElementsByTagName("script")[0];
+        i.parentNode.insertBefore(o, i);
+      });
+  }
+})();
+drift.SNIPPET_VERSION = "0.3.1";
+drift.load("i3sks436p5vp");
+</script>
 
 <template>
   <!-- Section 1.1-->
@@ -159,12 +209,10 @@
           <div class="flex flex-col items-start justify-start w-full h-auto mb-12 lg:w-1/3 lg:mb-0">
             <div class="flex items-center justify-center">
               <div class="w-16 h-16 mr-4 overflow-hidden bg-gray-200 rounded-full">
-                <img
-                  src="https://images.unsplash.com/photo-1527980965255-d3b416303d12?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=1700&amp;q=80"
-                  class="object-cover w-full h-full" />
+                <img src="../assets/images/Screenshot 2022-12-16 at 15.34.26.png" class="object-cover w-full h-full" />
               </div>
               <div class="flex flex-col items-start justify-center">
-                <h4 class="font-bold text-gray-800">John Doe</h4>
+                <h4 class="font-bold text-gray-800">Joan Doe</h4>
                 <p class="text-gray-600">CEO of Something</p>
               </div>
             </div>
@@ -178,12 +226,10 @@
             class="flex flex-col items-start justify-start w-full h-auto px-0 mx-0 mb-12 border-l border-r border-transparent lg:w-1/3 lg:mb-0 lg:px-8 lg:mx-8 lg:border-gray-200">
             <div class="flex items-center justify-center">
               <div class="w-16 h-16 mr-4 overflow-hidden bg-gray-200 rounded-full">
-                <img
-                  src="https://images.unsplash.com/photo-1544725176-7c40e5a71c5e?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=2547&amp;q=80"
-                  class="object-cover w-full h-full" />
+                <img src="../assets/images/Screenshot 2022-12-16 at 15.30.22.png" class="object-cover w-full h-full" />
               </div>
               <div class="flex flex-col items-start justify-center">
-                <h4 class="font-bold text-gray-800">Jane Doe</h4>
+                <h4 class="font-bold text-gray-800">Cristian Smith</h4>
                 <p class="text-gray-600">CTO of Business</p>
               </div>
             </div>
@@ -195,12 +241,10 @@
           <div class="flex flex-col items-start justify-start w-full h-auto lg:w-1/3">
             <div class="flex items-center justify-center">
               <div class="w-16 h-16 mr-4 overflow-hidden bg-gray-200 rounded-full">
-                <img
-                  src="https://images.unsplash.com/photo-1545167622-3a6ac756afa4?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=1256&amp;q=80"
-                  class="object-cover w-full h-full" />
+                <img src="../assets/images/Screenshot 2022-12-16 at 15.30.07.png" class="object-cover w-full h-full" />
               </div>
               <div class="flex flex-col items-start justify-center">
-                <h4 class="font-bold text-gray-800">John Smith</h4>
+                <h4 class="font-bold text-gray-800">Luis Smith</h4>
                 <p class="text-gray-600">Creator of Stuff</p>
               </div>
             </div>
