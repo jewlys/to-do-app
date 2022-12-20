@@ -66,7 +66,7 @@
       </div>
     </button>
 
-    <span class="flex items-center h-6 px-3 text-xs font-semibold text-pink-500 bg-pink-100 rounded-full">{{
+    <span class="flex items-center h-6 px-3 text-xs font-semibold text-blue-500 bg-blue-100 rounded-full">{{
         chooseStatus()
     }}</span>
 

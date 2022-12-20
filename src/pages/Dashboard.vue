@@ -1,8 +1,9 @@
 <template>
-  <AppHeader />
+  
 
   <div
-    class="flex flex-col w-screen h-screen overflow-auto text-gray-700 bg-gradient-to-tr from-blue-200 via-indigo-200 to-pink-200">
+    class="flex flex-col w-screen h-screen overflow-auto text-gray-700 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-indigo-100 via-blue-300 to-indigo-400">
+    <AppHeader/>
     <div class="px-10 mt-6">
       <h1 class="text-2xl font-bold">Team Project Board</h1>
     </div>
@@ -15,7 +16,7 @@ Drop zone begins  for column1-->
         <div class="flex items-center flex-shrink-0 h-10 px-2">
           <span class="block text-sm font-semibold">To do</span>
           <span
-            class="flex items-center justify-center w-5 h-5 ml-2 text-sm font-semibold text-indigo-500 bg-white rounded bg-opacity-30">{{
+            class="flex items-center justify-center w-5 h-5 ml-2 text-sm font-semibold text-blue-500 bg-white rounded bg-opacity-30">{{
                 tasksStore.getTasksbyStatus(1).length
             }}
           </span>
@@ -26,7 +27,7 @@ Drop zone begins  for column1-->
           draggable="true" @dragstart="startDrag($event, task.id)" />
         <!--- Drop zone begins  for column2-->
         <NewTask
-          class="relative flex flex-col items-center p-4 mt-3 bg-slate-200 rounded-lg cursor-pointer bg-opacity-90 group hover:bg-opacity-100" />
+          class="relative flex flex-col items-center p-4 mt-3 bg-white rounded-lg cursor-pointer bg-opacity-90 group hover:bg-opacity-100" />
         <div v-if="tasksStore.getTasksbyStatus(1).length == 0">Sorry, you don't have any cards. Add some to get started!
         </div>
 
@@ -39,14 +40,14 @@ Drop zone begins  for column1-->
         <div class="flex items-center flex-shrink-0 h-10 px-2">
           <span class="block text-sm font-semibold">Doing</span>
           <span
-            class="flex items-center justify-center w-5 h-5 ml-2 text-sm font-semibold text-indigo-500 bg-white rounded bg-opacity-30">{{
+            class="flex items-center justify-center w-5 h-5 ml-2 text-sm font-semibold text-blue-500 bg-white rounded bg-opacity-30">{{
                 tasksStore.getTasksbyStatus(2).length
             }}</span>
         </div>
         <TaskItem v-for="(task, index) in tasksStore.getTasksbyStatus(2)" :key="index" :task="task" class="card"
           draggable="true" @dragstart="startDrag($event, task.id)" />
         <NewTask
-          class="relative flex flex-col items-center p-4 mt-3 bg-slate-200 rounded-lg cursor-pointer bg-opacity-90 group hover:bg-opacity-100" />
+          class="relative flex flex-col items-center p-4 mt-3 bg-slate-100 rounded-lg cursor-pointer bg-opacity-90 group hover:bg-opacity-100" />
         <div v-if="tasksStore.getTasksbyStatus(2).length == 0">Sorry, you don't have any cards. Add some to get started!
         </div>
       </div>
@@ -56,14 +57,14 @@ Drop zone begins  for column1-->
         <div class="flex items-center flex-shrink-0 h-10 px-2">
           <span class="block text-sm font-semibold">Done</span>
           <span
-            class="flex items-center justify-center w-5 h-5 ml-2 text-sm font-semibold text-indigo-500 bg-white rounded bg-opacity-30">{{
+            class="flex items-center justify-center w-5 h-5 ml-2 text-sm font-semibold text-blue-500 bg-white rounded bg-opacity-30">{{
                 tasksStore.getTasksbyStatus(3).length
             }}</span>
         </div>
         <TaskItem v-for="(task, index) in tasksStore.getTasksbyStatus(3)" :key="index" :task="task" class="card"
           draggable="true" @dragstart="startDrag($event, task.id)" />
         <NewTask
-          class="relative flex flex-col items-center p-4 mt-3 bg-slate-200 rounded-lg cursor-pointer bg-opacity-90 group hover:bg-opacity-100" />
+          class="relative flex flex-col items-center p-4 mt-3 bg-slate-100 rounded-lg cursor-pointer bg-opacity-90 group hover:bg-opacity-100" />
         <div v-if="tasksStore.getTasksbyStatus(3).length == 0">Sorry, you don't have any cards. Add some to get started!
         </div>
 
