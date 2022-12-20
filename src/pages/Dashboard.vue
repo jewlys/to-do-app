@@ -1,6 +1,6 @@
 <template>
   <AppHeader />
- 
+
   <div
     class="flex flex-col w-screen h-screen overflow-auto text-gray-700 bg-gradient-to-tr from-blue-200 via-indigo-200 to-pink-200"
   >
@@ -19,7 +19,6 @@ Here begins the huge code for the header columns
             class="flex items-center justify-center w-5 h-5 ml-2 text-sm font-semibold text-indigo-500 bg-white rounded bg-opacity-30"
             >{{ tasksStore.getTasksbyStatus(1).length }}</span
           >
-          
         </div>
         <TaskItem
           v-for="(task, index) in tasksStore.getTasksbyStatus(1)"
@@ -37,8 +36,6 @@ Here begins the huge code for the header columns
             class="flex items-center justify-center w-5 h-5 ml-2 text-sm font-semibold text-indigo-500 bg-white rounded bg-opacity-30"
             >{{ tasksStore.getTasksbyStatus(2).length }}</span
           >
-         
-          
         </div>
         <TaskItem
           v-for="(task, index) in tasksStore.getTasksbyStatus(2)"
@@ -56,7 +53,6 @@ Here begins the huge code for the header columns
             class="flex items-center justify-center w-5 h-5 ml-2 text-sm font-semibold text-indigo-500 bg-white rounded bg-opacity-30"
             >{{ tasksStore.getTasksbyStatus(3).length }}</span
           >
-          
         </div>
         <TaskItem
           v-for="(task, index) in tasksStore.getTasksbyStatus(3)"
