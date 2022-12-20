@@ -1,97 +1,74 @@
 <template>
   <AppHeader />
-  <!-- <div v-for="(task, index) in  tasksStore.tasks " :key="index">
-    <h1> {{ task.title }}</h1>
-  </div> -->
-  <!-- Component Start -->
+
   <div
-    class="flex flex-col w-screen h-screen overflow-auto text-gray-700 bg-gradient-to-tr from-blue-200 via-indigo-200 to-pink-200"
-  >
+    class="flex flex-col w-screen h-screen overflow-auto text-gray-700 bg-gradient-to-tr from-blue-200 via-indigo-200 to-pink-200">
     <div class="px-10 mt-6">
       <h1 class="text-2xl font-bold">Team Project Board</h1>
     </div>
+
     <div class="flex flex-grow px-10 mt-4 space-x-6 overflow-auto">
       <!-- 
-Here begins the huge code for the header columns
--->
-
-      <div id="dropzone1" class="flex flex-col flex-shrink-0 w-72">
+Drop zone begins  for column1-->
+      <div id="dropzone" class="  flex flex-col flex-shrink-0 w-72 drag-el" :key="index" @drop="onDrop($event, 1)"
+        @dragover.prevent @dragenter.prevent>
         <div class="flex items-center flex-shrink-0 h-10 px-2">
           <span class="block text-sm font-semibold">To do</span>
           <span
-            class="flex items-center justify-center w-5 h-5 ml-2 text-sm font-semibold text-indigo-500 bg-white rounded bg-opacity-30"
-            >{{ tasksStore.getTasksbyStatus(1).length }}</span
-          >
-          <!--  example comment <button
-            class="flex items-center justify-center w-6 h-6 ml-auto text-indigo-500 rounded hover:bg-indigo-500 hover:text-indigo-100">
-            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6">
-              </path>
-            </svg>
-          </button> -->
+            class="flex items-center justify-center w-5 h-5 ml-2 text-sm font-semibold text-indigo-500 bg-white rounded bg-opacity-30">{{
+                tasksStore.getTasksbyStatus(1).length
+            }}
+          </span>
+
         </div>
-        <TaskItem
-          v-for="(task, index) in tasksStore.getTasksbyStatus(1)"
-          :key="index"
-          :task="task"
-        />
+
+        <TaskItem v-for="(task, index) in tasksStore.getTasksbyStatus(1)" :key="index" :task="task" class="card"
+          draggable="true" @dragstart="startDrag($event, task.id)" />
+        <!--- Drop zone begins  for column2-->
+
         <NewTask
-          class="relative flex flex-col items-center p-4 mt-3 bg-slate-200 rounded-lg cursor-pointer bg-opacity-90 group hover:bg-opacity-100"
-        />
+          class="  relative flex flex-col items-center p-4 mt-3 bg-slate-200 rounded-lg cursor-pointer bg-opacity-90 group hover:bg-opacity-100" />
       </div>
-      <div id="dropzone2" class="flex flex-col flex-shrink-0 w-72">
+      <div id="dropzone" class=" flex flex-col flex-shrink-0 w-72 drag-el" :key="index" @drop="onDrop($event, 2)"
+        @dragover.prevent @dragenter.prevent>
         <div class="flex items-center flex-shrink-0 h-10 px-2">
           <span class="block text-sm font-semibold">Doing</span>
           <span
-            class="flex items-center justify-center w-5 h-5 ml-2 text-sm font-semibold text-indigo-500 bg-white rounded bg-opacity-30"
-            >{{ tasksStore.getTasksbyStatus(2).length }}</span
-          >
-          <!-- <button
-            class="flex items-center justify-center w-6 h-6 ml-auto text-indigo-500 rounded hover:bg-indigo-500 hover:text-indigo-100">
-             <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6">
-              </path>
-            </svg> 
-          </button> -->
+            class="flex items-center justify-center w-5 h-5 ml-2 text-sm font-semibold text-indigo-500 bg-white rounded bg-opacity-30">{{
+                tasksStore.getTasksbyStatus(2).length
+            }}</span>
+
         </div>
-        <TaskItem
-          v-for="(task, index) in tasksStore.getTasksbyStatus(2)"
-          :key="index"
-          :task="task"
-        />
+        <TaskItem v-for="(task, index) in tasksStore.getTasksbyStatus(2)" :key="index" :task="task" class="card"
+          draggable="true" @dragstart="startDrag($event, task.id)" />
         <NewTask
-          class="relative flex flex-col items-center p-4 mt-3 bg-slate-200 rounded-lg cursor-pointer bg-opacity-90 group hover:bg-opacity-100"
-        />
+          class="relative flex flex-col items-center p-4 mt-3 bg-slate-200 rounded-lg cursor-pointer bg-opacity-90 group hover:bg-opacity-100" />
       </div>
-      <div id="dropzone1" class="flex flex-col flex-shrink-0 w-72">
+
+      <div id="dropzone" class="  flex flex-col flex-shrink-0 w-72 drag-el" :key="index" @drop="onDrop($event, 3)"
+        @dragover.prevent @dragenter.prevent>
         <div class="flex items-center flex-shrink-0 h-10 px-2">
           <span class="block text-sm font-semibold">Done</span>
           <span
-            class="flex items-center justify-center w-5 h-5 ml-2 text-sm font-semibold text-indigo-500 bg-white rounded bg-opacity-30"
-            >{{ tasksStore.getTasksbyStatus(3).length }}</span
-          >
-          <!-- <button
-            class="flex items-center justify-center w-6 h-6 ml-auto text-indigo-500 rounded hover:bg-indigo-500 hover:text-indigo-100">
-            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6">
-              </path>
-            </svg>
-          </button> -->
+            class="flex items-center justify-center w-5 h-5 ml-2 text-sm font-semibold text-indigo-500 bg-white rounded bg-opacity-30">{{
+                tasksStore.getTasksbyStatus(3).length
+            }}</span>
+
         </div>
-        <TaskItem
-          v-for="(task, index) in tasksStore.getTasksbyStatus(3)"
-          :key="index"
-          :task="task"
-        />
+        <TaskItem v-for="(task, index) in tasksStore.getTasksbyStatus(3)" :key="index" :task="task" class="card"
+          draggable="true" @dragstart="startDrag($event, task.id)" />
+
+
         <NewTask
-          class="relative flex flex-col items-center p-4 mt-3 bg-slate-200 rounded-lg cursor-pointer bg-opacity-90 group hover:bg-opacity-100"
-        />
+          class="relative flex flex-col items-center p-4 mt-3 bg-slate-200 rounded-lg cursor-pointer bg-opacity-90 group hover:bg-opacity-100" />
       </div>
+
       <div class="flex-shrink-0 w-6"></div>
     </div>
+
   </div>
 
-  <!-- Component End -->
+
 
   <Footer />
 
@@ -102,7 +79,7 @@ Here begins the huge code for the header columns
 import NewTask from "../components/NewTask.vue";
 import TaskItem from "../components/TaskItem.vue";
 import tasksStore from "../store/task";
-import Draggable from "vue3-draggable";
+
 import AppHeader from "../components/AppHeader.vue";
 import Footer from "../components/Footer.vue";
 
@@ -121,10 +98,11 @@ export default {
   components: {
     NewTask,
     TaskItem,
-    Draggable,
     AppHeader,
     Footer,
   },
+
+
 
   methods: {
     //    deleteThisRow: function (index) {
@@ -136,20 +114,108 @@ export default {
 
     //   },
 
-    deleteTasks(itemID) {},
 
-    updateTask(itemID) {},
+    startDrag(evt, taskid) {
+      console.log('hola')
+      evt.dataTransfer.dropEffect = 'move'
+      evt.dataTransfer.effectAllowed = 'move'
+      setTimeout(() => {
+        evt.target.classList.add('hide');
+      }, 1);
+      evt.dataTransfer.setData('itemID', taskid)
+      console.log(taskid)
+      // let finalStatus = tasksStore.getTasksbyStatus(1)
+      // return finalStatus
+
+
+    },
+    onDrop(evt, dropzone) {
+      const itemID = evt.dataTransfer.getData('itemID')
+      if (evt.target.id == 'dropzone')
+        evt.target.append(document.getElementById("taskitem"));
+      // evt.preventDefault();
+      this.tasksStore.updateStatus(dropzone, itemID);
+
+
+      // for manipulating dropzone
+      const dropzones = document.querySelectorAll('#dropzone');
+
+      dropzones.forEach(dropzone => {
+        dropzone.addEventListener('dragenter', dragEnter)
+        dropzone.addEventListener('dragover', dragOver);
+        dropzone.addEventListener('dragleave', dragLeave);
+        dropzone.addEventListener('drop', drop);
+      });
+
+      function dragEnter(e) {
+        e.target.classList.add('drag-over');
+      }
+
+      function dragOver(e) {
+        e.target.classList.add('drag-over');
+      }
+
+      function dragLeave(e) {
+        e.target.classList.remove('drag-over');
+      }
+
+      function drop(e) {
+        e.target.classList.remove('drag-over');
+
+      }
+
+      // console.log(dropzone, itemID)
+      // // let finalStatus = this.tasksStore.tasks.status
+      // // return finalStatus
+    },
+
+
+
+
   },
   computed: {
     ...mapStores(tasksStore),
+
+    // listOne() {
+    //   return this.tasks.filter((item) => task.status === 1)
+    // },
+    // listTwo() {
+    //   return this.items.filter((item) => item.status === 2)
+    // },
+
+    // listThree() {
+    //   return this.items.filter((item) => item.status === 3)
+    // },
+    // ColumTotalsByStatus() {
+    //   return this.tasksStore.tasks.status;
+    // },
   },
 
-  ColumTotalsByStatus() {
-    return this.tasksStore.tasks.status;
-  },
+
 
   mounted() {
     this.tasksStore.fetchTasks();
   },
+
+
+
+
 };
+
 </script>
+
+
+
+<style scoped>
+:hover#drop-zone {}
+
+:hover.card {}
+
+.drag-over {
+  transition: all 200ms ease;
+  vertical-align: top;
+
+  border: dashed 3px rgb(13, 181, 80);
+}
+</style>
+
