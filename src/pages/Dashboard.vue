@@ -43,7 +43,7 @@ Drop zone begins  for column1-->
 
         </div>
         <TaskItem v-for="(task, index) in tasksStore.getTasksbyStatus(2)" :key="index" :task="task" class="card"
-          draggable="true" />
+          draggable="true" @dragstart="startDrag($event, task.id)" />
         <NewTask
           class="relative flex flex-col items-center p-4 mt-3 bg-slate-200 rounded-lg cursor-pointer bg-opacity-90 group hover:bg-opacity-100" />
       </div>
@@ -59,7 +59,7 @@ Drop zone begins  for column1-->
 
         </div>
         <TaskItem v-for="(task, index) in tasksStore.getTasksbyStatus(3)" :key="index" :task="task" class="card"
-          draggable="true" />
+          draggable="true" @dragstart="startDrag($event, task.id)" />
 
 
         <NewTask
@@ -118,32 +118,26 @@ export default {
     //   },
 
 
-
-    deleteTasks(itemID) { },
-
-    updateTask() {
-
-
-    },
     startDrag(evt, taskid) {
+      console.log('hola')
       evt.dataTransfer.dropEffect = 'move'
       evt.dataTransfer.effectAllowed = 'move'
       setTimeout(() => {
         evt.target.classList.add('hide');
       }, 1);
       evt.dataTransfer.setData('itemID', taskid)
+      console.log(taskid)
       // let finalStatus = tasksStore.getTasksbyStatus(1)
       // return finalStatus
 
-      this.updateTask()
 
     },
     onDrop(evt, dropzone) {
       const itemID = evt.dataTransfer.getData('itemID')
       if (evt.target.id == 'dropzone')
         evt.target.append(document.getElementById("taskitem"));
-      evt.preventDefault();
-      this.updateTask()
+      // evt.preventDefault();
+      this.tasksStore.updateStatus(dropzone, itemID);
 
 
       // for manipulating dropzone
@@ -173,9 +167,9 @@ export default {
 
       }
 
-      console.log(dropzone, itemID)
-      // let finalStatus = this.tasksStore.tasks.status
-      // return finalStatus
+      // console.log(dropzone, itemID)
+      // // let finalStatus = this.tasksStore.tasks.status
+      // // return finalStatus
     },
 
 
