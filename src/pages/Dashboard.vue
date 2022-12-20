@@ -1,9 +1,6 @@
 <template>
   <AppHeader />
-  <!-- <div v-for="(task, index) in  tasksStore.tasks " :key="index">
-    <h1> {{ task.title }}</h1>
-  </div> -->
-  <!-- Component Start -->
+
   <div
     class="flex flex-col w-screen h-screen overflow-auto text-gray-700 bg-gradient-to-tr from-blue-200 via-indigo-200 to-pink-200">
     <div class="px-10 mt-6">
