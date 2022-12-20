@@ -63,7 +63,7 @@ drift.load("i3sks436p5vp");
   <!-- Section 1.1-->
   <nav class="flex items-center justify-between flex-wrap sticky bg-indigo-400 p-6">
     <div class="flex items-center flex-shrink-0 text-white mr-6">
-      <img class="fill-current h-8 w-8 mr-2" width="54" height="54" src="../assets/images/potion (1).png" />
+      <img class="fill-current h-8 w-8 mr-2" width="54" height="54" src="../assets/images/potionpink.png" />
       <span class="font-semibold text-xl tracking-tight">Potion</span>
     </div>
     <div class="block lg:hidden">
@@ -135,7 +135,7 @@ drift.load("i3sks436p5vp");
         </div>
         <div class="w-full md:w-1/2">
           <div class="w-full h-auto overflow-hidden rounded-md shadow-xl sm:rounded-xl">
-            <img src="../assets/images/Group 9.png" />
+            <img src="../assets/images/Group-9.png" />
           </div>
         </div>
       </div>
