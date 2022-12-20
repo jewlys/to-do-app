@@ -106,12 +106,14 @@ drift.load("i3sks436p5vp");
 
       <div>
         <a
-          href="#"
+          href="/signup"
           class="inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-pink-400 hover:bg-white mt-4 lg:mt-0"
           >Sign Up</a
         >
+      </div>
+      <div>
         <a
-          href="#"
+          href="/login"
           class="inline-block text-sm px-4 py-2 leading-none text-white border-white hover:border-transparent hover:text-pink-400 hover:bg-white mt-4 lg:mt-0"
           >Log In</a
         >
