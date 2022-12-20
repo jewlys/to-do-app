@@ -135,7 +135,7 @@ drift.load("i3sks436p5vp");
         </div>
         <div class="w-full md:w-1/2">
           <div class="w-full h-auto overflow-hidden rounded-md shadow-xl sm:rounded-xl">
-            <img src="../assets/images/Group 9.png" />
+            <img src="../assets/images/Group-9.png" />
           </div>
         </div>
       </div>
