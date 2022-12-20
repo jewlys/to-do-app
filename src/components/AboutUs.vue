@@ -32,7 +32,7 @@
             class="box-border relative py-1 pl-0 text-left text-gray-500 border-solid"
           >
             <span
-              class="inline-flex items-center justify-center w-6 h-6 mr-2 text-white bg-pink-400 rounded-full"
+              class="inline-flex items-center justify-center w-6 h-6 mr-2 text-white bg-indigo-300 rounded-full"
               ><span class="text-sm font-bold">✓</span></span
             >
             Maximize productivity and growth
@@ -41,7 +41,7 @@
             class="box-border relative py-1 pl-0 text-left text-gray-500 border-solid"
           >
             <span
-              class="inline-flex items-center justify-center w-6 h-6 mr-2 text-white bg-pink-400 rounded-full"
+              class="inline-flex items-center justify-center w-6 h-6 mr-2 text-white bg-indigo-300 rounded-full"
               ><span class="text-sm font-bold">✓</span></span
             >
             Speed past your competition
@@ -50,7 +50,7 @@
             class="box-border relative py-1 pl-0 text-left text-gray-500 border-solid"
           >
             <span
-              class="inline-flex items-center justify-center w-6 h-6 mr-2 text-white bg-pink-400 rounded-full"
+              class="inline-flex items-center justify-center w-6 h-6 mr-2 text-white bg-indigo-300 rounded-full"
               ><span class="text-sm font-bold">✓</span></span
             >
             Learn the top techniques
@@ -80,7 +80,7 @@
             class="box-border relative py-1 pl-0 text-left text-gray-500 border-solid"
           >
             <span
-              class="inline-flex items-center justify-center w-6 h-6 mr-2 text-white bg-pink-400 rounded-full"
+              class="inline-flex items-center justify-center w-6 h-6 mr-2 text-white bg-indigo-300 rounded-full"
               ><span class="text-sm font-bold">✓</span></span
             >
             Automated task management workflow
@@ -89,7 +89,7 @@
             class="box-border relative py-1 pl-0 text-left text-gray-500 border-solid"
           >
             <span
-              class="inline-flex items-center justify-center w-6 h-6 mr-2 text-white bg-pink-400 rounded-full"
+              class="inline-flex items-center justify-center w-6 h-6 mr-2 text-white bg-indigo-300 rounded-full"
               ><span class="text-sm font-bold">✓</span></span
             >
             Detailed analytics for your data
@@ -98,7 +98,7 @@
             class="box-border relative py-1 pl-0 text-left text-gray-500 border-solid"
           >
             <span
-              class="inline-flex items-center justify-center w-6 h-6 mr-2 text-white bg-pink-400 rounded-full"
+              class="inline-flex items-center justify-center w-6 h-6 mr-2 text-white bg-indigo-300 rounded-full"
               ><span class="text-sm font-bold">✓</span></span
             >
             Some awesome integrations

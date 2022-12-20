@@ -62,7 +62,7 @@ drift.load("i3sks436p5vp");
 <template>
   <!-- Section 1.1-->
   <nav
-    class="flex items-center justify-between flex-wrap sticky bg-pink-300 p-6"
+    class="flex items-center justify-between flex-wrap sticky bg-indigo-400 p-6"
   >
     <div class="flex items-center flex-shrink-0 text-white mr-6">
       <img
@@ -75,7 +75,7 @@ drift.load("i3sks436p5vp");
     </div>
     <div class="block lg:hidden">
       <button
-        class="flex items-center px-3 py-2 border rounded text-pink-400 border-pink-400 hover:text-white hover:border-white"
+        class="flex items-center px-3 py-2 border rounded text-indigo-400 border-indigo-400 hover:text-white hover:border-white"
       >
         <svg
           class="fill-current h-3 w-3"
@@ -132,7 +132,7 @@ drift.load("i3sks436p5vp");
               class="text-4xl font-extrabold tracking-tight text-gray-900 sm:text-5xl md:text-4xl lg:text-5xl xl:text-6xl"
             >
               <span class="block xl:inline">Tired of Notion's flaws </span>
-              <span class="block text-pink-300 xl:inline"
+              <span class="block text-indigo-300 xl:inline"
                 >and ready to switch?</span
               >
             </h1>
@@ -144,7 +144,7 @@ drift.load("i3sks436p5vp");
             <div class="relative flex flex-col sm:flex-row sm:space-x-4">
               <a
                 href="/signup"
-                class="flex items-center w-full px-6 py-3 mb-3 text-lg text-slate-900 bg-pink-300 rounded-md sm:mb-0 hover:bg-indigo-700 sm:w-auto"
+                class="flex items-center w-full px-6 py-3 mb-3 text-lg text-slate-900 bg-indigo-400 rounded-md sm:mb-0 hover:bg-indigo-700 sm:w-auto"
               >
                 Sign Up
                 <svg
