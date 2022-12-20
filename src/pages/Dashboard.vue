@@ -1,8 +1,7 @@
 <template>
   <AppHeader />
 
-  <div
-    class="flex flex-col w-screen h-screen overflow-auto text-gray-700 bg-gradient-to-tr from-blue-200 via-indigo-200 to-pink-200">
+  <div id="big" class=" big flex flex-col w-screen h-screen overflow-auto text-gray-700 ">
     <div class="px-10 mt-6">
       <h1 class="text-2xl font-bold">Team Project Board</h1>
     </div>
@@ -26,8 +25,9 @@ Drop zone begins  for column1-->
           draggable="true" @dragstart="startDrag($event, task.id)" />
         <!--- Drop zone begins  for column2-->
         <NewTask
-          class="relative flex flex-col items-center p-4 mt-3 bg-slate-200 rounded-lg cursor-pointer bg-opacity-90 group hover:bg-opacity-100" />
-        <div v-if="tasksStore.getTasksbyStatus(1).length == 0">Sorry, you don't have any cards. Add some to get started!
+          class="relative flex flex-col items-center p-4 mt-3  bg-violet-50 rounded-lg cursor-pointer bg-opacity-90 group hover:bg-opacity-100" />
+        <div v-if="tasksStore.getTasksbyStatus(1).length == 0" class="mt-3 text-sm font-medium">Sorry, you don't have
+          any cards. Add some to get started!
         </div>
 
         <div>
@@ -46,7 +46,7 @@ Drop zone begins  for column1-->
         <TaskItem v-for="(task, index) in tasksStore.getTasksbyStatus(2)" :key="index" :task="task" class="card"
           draggable="true" @dragstart="startDrag($event, task.id)" />
         <NewTask
-          class="relative flex flex-col items-center p-4 mt-3 bg-slate-200 rounded-lg cursor-pointer bg-opacity-90 group hover:bg-opacity-100" />
+          class="relative flex flex-col items-center p-4 mt-3 bg-violet-50 rounded-lg cursor-pointer bg-opacity-90 group hover:bg-opacity-100" />
         <div v-if="tasksStore.getTasksbyStatus(2).length == 0">Sorry, you don't have any cards. Add some to get started!
         </div>
       </div>
@@ -63,7 +63,7 @@ Drop zone begins  for column1-->
         <TaskItem v-for="(task, index) in tasksStore.getTasksbyStatus(3)" :key="index" :task="task" class="card"
           draggable="true" @dragstart="startDrag($event, task.id)" />
         <NewTask
-          class="relative flex flex-col items-center p-4 mt-3 bg-slate-200 rounded-lg cursor-pointer bg-opacity-90 group hover:bg-opacity-100" />
+          class="relative flex flex-col items-center p-4 mt-3  bg-violet-50 rounded-lg cursor-pointer bg-opacity-90 group hover:bg-opacity-100" />
         <div v-if="tasksStore.getTasksbyStatus(3).length == 0">Sorry, you don't have any cards. Add some to get started!
         </div>
 
@@ -219,6 +219,28 @@ export default {
   vertical-align: top;
 
   border: dashed 3px rgb(255, 255, 255);
+}
+
+.big {
+
+
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background: linear-gradient(45deg, #F17C58, #E94584, #24AADB, #27DBB1, #FFDC18, #FF3706);
+  background-size: 600% 100%;
+  animation: gradient 16s linear infinite;
+  animation-direction: alternate;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0%
+  }
+
+  100% {
+    background-position: 100%
+  }
 }
 </style>
 

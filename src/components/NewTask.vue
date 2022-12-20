@@ -12,7 +12,7 @@
 
       </button>
     </div>
-    <div class="">
+    <div class="text-indigo-500">
       Add new</div>
 
     <div v-if="showModal"

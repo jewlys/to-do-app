@@ -66,9 +66,18 @@
       </div>
     </button>
 
-    <span class="flex items-center h-6 px-3 text-xs font-semibold text-pink-500 bg-pink-100 rounded-full">{{
-        chooseStatus()
-    }}</span>
+    <span v-if="chooseStatus(1)"
+      class="flex items-center h-6 px-3 text-xs font-semibold text-green-500 bg-green-100  rounded-full">{{
+          chooseStatus()
+      }}</span>
+    <span v-else-if="chooseStatus(2)"
+      class="flex items-center h-6 px-3 text-xs font-semibold text-blue-500 bg-green-100  rounded-full">{{
+          chooseStatus()
+      }}</span>
+    <span v-else-if="chooseStatus(3)"
+      class="flex items-center h-6 px-3 text-xs font-semibold text-red-500 bg-green-100  rounded-full">{{
+          chooseStatus()
+      }}</span>
 
     <div class="annoyingtext">
       <p class="truncate ...">{{ task.title }}</p>
