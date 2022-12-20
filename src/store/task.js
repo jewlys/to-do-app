@@ -32,9 +32,19 @@ export default defineStore("tasks", {
         .from("tasks")
         .update({ title: title, status: status })
         .eq("id", itemID)
-        .select();
       this.fetchTasks();
     },
+    async updateStatus(status, itemID) {
+      console.log(status, itemID);
+
+      const { error } = await supabase
+        .from("tasks")
+        .update({ status: status })
+        .eq("id", itemID)
+      this.fetchTasks();
+    },
+
+
     //add new task
     async addnewTask(title, user_id, status) {
       //  insert en la base
@@ -62,7 +72,7 @@ export default defineStore("tasks", {
       return (status) => state.tasks.filter((task) => task.status === status);
     },
 
-    numberOfTasksPerColumn() {},
+    numberOfTasksPerColumn() { },
 
     // Trying it as a getter
     // removeTask(index) {
