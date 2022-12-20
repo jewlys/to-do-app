@@ -2,15 +2,18 @@
   <!-- other try with another form  -->
 
   <form @submit.prevent="taskStoreGetter()">
-    <button type="button" v-on:click="toggleModal()"
-      class="flex items-center justify-center w-6 h-6 ml-auto text-indigo-500 rounded hover:bg-indigo-500 hover:text-indigo-100"
-      data-modal-toggle="staticModal">
-      <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
-      </svg>
+    <div>
+      <button type="button" v-on:click="toggleModal()"
+        class="flex items-center justify-center w-6 h-6 ml-auto text-indigo-500 rounded hover:bg-indigo-500 hover:text-indigo-100"
+        data-modal-toggle="staticModal">
+        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
+        </svg>
 
-    </button>
-
+      </button>
+    </div>
+    <div class="">
+      Add new</div>
 
     <div v-if="showModal"
       class="overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none justify-center items-center flex">
