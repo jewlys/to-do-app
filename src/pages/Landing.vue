@@ -69,7 +69,7 @@ drift.load("i3sks436p5vp");
         class="fill-current h-8 w-8 mr-2"
         width="54"
         height="54"
-        src="../assets/images/potion (1).png"
+        src="../assets/images/potionpink.png"
       />
       <span class="font-semibold text-xl tracking-tight">Potion</span>
     </div>
@@ -184,7 +184,7 @@ drift.load("i3sks436p5vp");
           <div
             class="w-full h-auto overflow-hidden rounded-md shadow-xl sm:rounded-xl"
           >
-            <img src="../assets/images/Group 9.png" />
+            <img src="../assets/images/Group-9.png" />
           </div>
         </div>
       </div>
@@ -195,55 +195,55 @@ drift.load("i3sks436p5vp");
     <AboutUs />
   </div>
 
-      <!-- Content -->
-      <section>
-      <div
-        id="section1"
-        class="box-border order-first w-full text-black border-solid md:w-1/2 md:pl-10 md:order-none"
+  <!-- Content -->
+  <section>
+    <div
+      id="section1"
+      class="box-border order-first w-full text-black border-solid md:w-1/2 md:pl-10 md:order-none"
+    >
+      <h2
+        class="m-0 text-xl font-semibold leading-tight border-0 border-gray-300 lg:text-3xl md:text-2xl"
       >
-        <h2
-          class="m-0 text-xl font-semibold leading-tight border-0 border-gray-300 lg:text-3xl md:text-2xl"
+        Boost Productivity
+      </h2>
+      <p
+        class="pt-4 pb-8 m-0 leading-7 text-gray-700 border-0 border-gray-300 sm:pr-12 xl:pr-32 lg:text-lg"
+      >
+        Build an atmosphere that creates productivity in your organization and
+        your company culture.
+      </p>
+      <ul class="p-0 m-0 leading-6 border-0 border-gray-300">
+        <li
+          class="box-border relative py-1 pl-0 text-left text-gray-500 border-solid"
         >
-          Boost Productivity
-        </h2>
-        <p
-          class="pt-4 pb-8 m-0 leading-7 text-gray-700 border-0 border-gray-300 sm:pr-12 xl:pr-32 lg:text-lg"
+          <span
+            class="inline-flex items-center justify-center w-6 h-6 mr-2 text-white bg-indigo-400 rounded-full"
+            ><span class="text-sm font-bold">✓</span></span
+          >
+          Maximize productivity and growth
+        </li>
+        <li
+          class="box-border relative py-1 pl-0 text-left text-gray-500 border-solid"
         >
-          Build an atmosphere that creates productivity in your organization and
-          your company culture.
-        </p>
-        <ul class="p-0 m-0 leading-6 border-0 border-gray-300">
-          <li
-            class="box-border relative py-1 pl-0 text-left text-gray-500 border-solid"
+          <span
+            class="inline-flex items-center justify-center w-6 h-6 mr-2 text-white bg-indigo-400 rounded-full"
+            ><span class="text-sm font-bold">✓</span></span
           >
-            <span
-              class="inline-flex items-center justify-center w-6 h-6 mr-2 text-white bg-indigo-400 rounded-full"
-              ><span class="text-sm font-bold">✓</span></span
-            >
-            Maximize productivity and growth
-          </li>
-          <li
-            class="box-border relative py-1 pl-0 text-left text-gray-500 border-solid"
+          Speed past your competition
+        </li>
+        <li
+          class="box-border relative py-1 pl-0 text-left text-gray-500 border-solid"
+        >
+          <span
+            class="inline-flex items-center justify-center w-6 h-6 mr-2 text-white bg-indigo-400 rounded-full"
+            ><span class="text-sm font-bold">✓</span></span
           >
-            <span
-              class="inline-flex items-center justify-center w-6 h-6 mr-2 text-white bg-indigo-400 rounded-full"
-              ><span class="text-sm font-bold">✓</span></span
-            >
-            Speed past your competition
-          </li>
-          <li
-            class="box-border relative py-1 pl-0 text-left text-gray-500 border-solid"
-          >
-            <span
-              class="inline-flex items-center justify-center w-6 h-6 mr-2 text-white bg-indigo-400 rounded-full"
-              ><span class="text-sm font-bold">✓</span></span
-            >
-            Learn the top techniques
-          </li>
-        </ul>
-      </div>
-      <!-- End  Content -->
-   
+          Learn the top techniques
+        </li>
+      </ul>
+    </div>
+    <!-- End  Content -->
+
     <div
       class="box-border flex flex-col items-center content-center px-8 mx-auto mt-2 leading-6 text-black border-0 border-gray-300 border-solid md:mt-20 xl:mt-0 md:flex-row max-w-7xl lg:px-16"
     >

@@ -25,9 +25,14 @@ Drop zone begins  for column1-->
         <TaskItem v-for="(task, index) in tasksStore.getTasksbyStatus(1)" :key="index" :task="task" class="card"
           draggable="true" @dragstart="startDrag($event, task.id)" />
         <!--- Drop zone begins  for column2-->
-
         <NewTask
-          class="  relative flex flex-col items-center p-4 mt-3 bg-slate-200 rounded-lg cursor-pointer bg-opacity-90 group hover:bg-opacity-100" />
+          class="relative flex flex-col items-center p-4 mt-3 bg-slate-200 rounded-lg cursor-pointer bg-opacity-90 group hover:bg-opacity-100" />
+        <div v-if="tasksStore.getTasksbyStatus(1).length == 0">Sorry, you don't have any cards. Add some to get started!
+        </div>
+
+        <div>
+
+        </div>
       </div>
       <div id="dropzone" class=" flex flex-col flex-shrink-0 w-72 drag-el" :key="index" @drop="onDrop($event, 2)"
         @dragover.prevent @dragenter.prevent>
@@ -37,12 +42,13 @@ Drop zone begins  for column1-->
             class="flex items-center justify-center w-5 h-5 ml-2 text-sm font-semibold text-indigo-500 bg-white rounded bg-opacity-30">{{
                 tasksStore.getTasksbyStatus(2).length
             }}</span>
-
         </div>
         <TaskItem v-for="(task, index) in tasksStore.getTasksbyStatus(2)" :key="index" :task="task" class="card"
           draggable="true" @dragstart="startDrag($event, task.id)" />
         <NewTask
           class="relative flex flex-col items-center p-4 mt-3 bg-slate-200 rounded-lg cursor-pointer bg-opacity-90 group hover:bg-opacity-100" />
+        <div v-if="tasksStore.getTasksbyStatus(2).length == 0">Sorry, you don't have any cards. Add some to get started!
+        </div>
       </div>
 
       <div id="dropzone" class="  flex flex-col flex-shrink-0 w-72 drag-el" :key="index" @drop="onDrop($event, 3)"
@@ -53,14 +59,14 @@ Drop zone begins  for column1-->
             class="flex items-center justify-center w-5 h-5 ml-2 text-sm font-semibold text-indigo-500 bg-white rounded bg-opacity-30">{{
                 tasksStore.getTasksbyStatus(3).length
             }}</span>
-
         </div>
         <TaskItem v-for="(task, index) in tasksStore.getTasksbyStatus(3)" :key="index" :task="task" class="card"
           draggable="true" @dragstart="startDrag($event, task.id)" />
-
-
         <NewTask
           class="relative flex flex-col items-center p-4 mt-3 bg-slate-200 rounded-lg cursor-pointer bg-opacity-90 group hover:bg-opacity-100" />
+        <div v-if="tasksStore.getTasksbyStatus(3).length == 0">Sorry, you don't have any cards. Add some to get started!
+        </div>
+
       </div>
 
       <div class="flex-shrink-0 w-6"></div>
@@ -70,7 +76,6 @@ Drop zone begins  for column1-->
 
 
 
-  <Footer />
 
   <!-- Component End -->
 </template>
@@ -131,8 +136,6 @@ export default {
     },
     onDrop(evt, dropzone) {
       const itemID = evt.dataTransfer.getData('itemID')
-      if (evt.target.id == 'dropzone')
-        evt.target.append(document.getElementById("taskitem"));
       // evt.preventDefault();
       this.tasksStore.updateStatus(dropzone, itemID);
 
@@ -215,7 +218,7 @@ export default {
   transition: all 200ms ease;
   vertical-align: top;
 
-  border: dashed 3px rgb(13, 181, 80);
+  border: dashed 3px rgb(255, 255, 255);
 }
 </style>
 
