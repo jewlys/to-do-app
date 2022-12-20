@@ -16,45 +16,40 @@
     <div class="w-full block flex-grow lg:flex lg:items-center lg:w-auto">
       <div class="text-sm lg:flex-grow">
         <a href="/" class="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-pink-500 mr-4">
-          H
-          ome
+          H ome
         </a>
         <a href="/dashboard" class="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-pink-400 mr-4">
           Tasks
         </a>
         <a href="#responsive-header" class="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-pink-400">
-
         </a>
       </div>
       <div>
         <a href="#" @click="logOut"
           class="inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-pink-400 hover:bg-white mt-4 lg:mt-0">Log
           out</a>
-
       </div>
     </div>
   </nav>
 </template>
 
 <script>
-
 import userStore from "../store/user";
 import { supabase } from "../supabase";
 import { mapStores } from "pinia";
 
 export default {
   computed: {
-    ...mapStores(userStore)
+    ...mapStores(userStore),
   },
 
   methods: {
     async logOut() {
       {
-        this.userStore.logOut()
-
+        this.userStore.logOut();
       }
-    }
-  }
+    },
+  },
 };
 </script>
 <style>
