@@ -289,7 +289,7 @@ drift.load("i3sks436p5vp");
                 class="w-16 h-16 mr-4 overflow-hidden bg-gray-200 rounded-full"
               >
                 <img
-                  src="../assets/images/Screenshot 2022-12-16 at 15.34.26.png"
+                  src="../assets/images/joancifo.png"
                   class="object-cover w-full h-full"
                 />
               </div>
@@ -312,7 +312,7 @@ drift.load("i3sks436p5vp");
                 class="w-16 h-16 mr-4 overflow-hidden bg-gray-200 rounded-full"
               >
                 <img
-                  src="../assets/images/Screenshot 2022-12-16 at 15.30.22.png"
+                  src="../assets/images/cristianwapo2.png"
                   class="object-cover w-full h-full"
                 />
               </div>
@@ -334,7 +334,7 @@ drift.load("i3sks436p5vp");
                 class="w-16 h-16 mr-4 overflow-hidden bg-gray-200 rounded-full"
               >
                 <img
-                  src="../assets/images/Screenshot 2022-12-16 at 15.30.07.png"
+                  src="../assets/images/luis.png"
                   class="object-cover w-full h-full"
                 />
               </div>

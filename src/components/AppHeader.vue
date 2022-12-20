@@ -2,7 +2,7 @@
   <div
     class="sticky top-0 flex items-center flex-shrink-0 w-full h-16 px-10 bg-white bg-opacity-75"
   >
-    <img src="../assets/images/potion (1).png" alt="" />
+    <img src="../assets/images/potionpink.png" alt="" />
     <p class="mx-2 text-sm font-semibold text-gray-600 hover:text-indigo-700">
       Potion
     </p>
