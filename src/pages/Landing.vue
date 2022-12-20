@@ -62,7 +62,7 @@ drift.load("i3sks436p5vp");
 <template>
   <!-- Section 1.1-->
   <nav
-    class="flex items-center justify-between flex-wrap sticky bg-indigo-400 p-6"
+    class="flex items-center justify-between flex-wrap sticky bg-indigo-300 p-6"
   >
     <div class="flex items-center flex-shrink-0 text-white mr-6">
       <img
