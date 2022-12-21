@@ -72,8 +72,11 @@ export default defineStore("tasks", {
       return (status) => state.tasks.filter((task) => task.status === status);
     },
 
-    numberOfTasksPerColumn() { },
+    getTitle: (state) => {
 
+      return (title) => state.tasks.filter((task) => task.title === title);
+
+    }
     // Trying it as a getter
     // removeTask(index) {
     //   this.task.splice(index, 1)
