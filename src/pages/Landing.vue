@@ -3,11 +3,22 @@ import Clients from "../components/Clients.vue";
 import AboutUs from "../components/AboutUs.vue";
 
 export default {
+  data() {
+    return {
+      showMenu: false,
+    };
+  },
+  methods: {
+    toggleNav() {
+      this.showMenu = !this.showMenu;
+    },
+  },
   components: {
     Clients,
     AboutUs,
   },
 };
+
 ("use strict");
 
 !(function () {
@@ -62,7 +73,7 @@ drift.load("i3sks436p5vp");
 <template>
   <!-- Section 1.1-->
   <nav
-    class="flex items-center justify-between flex-wrap sticky bg-blue-300 p-6"
+    class="flex items-center justify-between flex-wrap sticky bg-blue-300 bg-opacity-95 p-6"
   >
     <div class="flex items-center flex-shrink-0 text-white mr-6">
       <img
@@ -73,7 +84,7 @@ drift.load("i3sks436p5vp");
       />
       <span class="font-semibold text-xl tracking-tight">Potion</span>
     </div>
-    <div class="block lg:hidden">
+    <div @click="toggleNav" class="block lg:hidden">
       <button
         class="flex items-center px-3 py-2 border rounded text-blue-400 border-blue-400 hover:text-white hover:border-white"
       >
@@ -87,7 +98,10 @@ drift.load("i3sks436p5vp");
         </svg>
       </button>
     </div>
-    <div class="w-full block flex-grow lg:flex lg:items-center lg:w-auto">
+    <div
+      :class="showMenu ? 'flex' : 'hidden'"
+      class="w-full block flex-grow lg:flex lg:items-center lg:w-auto"
+    >
       <div class="text-sm lg:flex-grow">
         <a
           href="#aboutUs"
@@ -144,7 +158,7 @@ drift.load("i3sks436p5vp");
             <div class="relative flex flex-col sm:flex-row sm:space-x-4">
               <a
                 href="/signup"
-                class="flex items-center w-full px-6 py-3 mb-3 text-lg text-slate-900 bg-blue-400 rounded-md sm:mb-0 hover:bg-blue-700 sm:w-auto"
+                class="flex items-center w-full px-6 py-3 mb-3 text-lg text-slate-900 bg-blue-400 rounded-md sm:mb-0 hover:bg-gray-200 sm:w-auto"
               >
                 Sign Up
                 <svg
@@ -173,7 +187,7 @@ drift.load("i3sks436p5vp");
 
               <a
                 href="/login"
-                class="flex items-center px-6 py-3 text-gray-500 bg- rounded-md hover:bg-gray-200 hover:text-gray-600"
+                class="flex items-center px-6 py-3 text-gray-700 bg- rounded-md hover:bg-gray-200 hover:text-gray-600"
               >
                 Log In
               </a>

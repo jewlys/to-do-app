@@ -48,12 +48,12 @@
                 <!--footer-->
                 <div class="flex items-center justify-end p-6 border-t border-solid border-slate-200 rounded-b">
                   <button
-                    class="text-purple-500 bg-transparent border border-solid border-purple-500 hover:bg-purple-500 hover:text-white active:bg-purple-600 font-bold uppercase text-sm px-6 py-3 rounded outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+                    class="text-rose-500 bg-transparent border border-solid border-rose-300 hover:bg-rose-500 hover:text-white active:bg-rose-600 font-bold uppercase text-sm px-6 py-3 rounded outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
                     type="button" v-on:click="toggleModal()">
                     Close
                   </button>
                   <button
-                    class="text-green-500 background-transparent font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+                    class="text-indigo-500 background-transparent font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
                     type="button" v-on:click="updateTask()">
                     Save Changes
                   </button>
@@ -67,7 +67,7 @@
     </button>
 
     <span v-if="chooseStatus() === 'new'"
-      class="flex items-center h-6 px-3 text-xs font-semibold text-green-500 bg-green-100  rounded-full">{{
+      class="flex items-center h-6 px-3 text-xs font-semibold text-indigo-500 bg-indigo-100  rounded-full">{{
           chooseStatus()
       }}</span>
     <span v-else-if="chooseStatus() === 'In progress'"

@@ -3,7 +3,7 @@
     <div class="px-16 bg-white">
       <div class="container flex flex-col items-start mx-auto lg:items-center">
         <p
-          class="relative flex items-start justify-start w-full text-lg font-bold tracking-wider text-blue-400 uppercase lg:justify-center lg:items-center"
+          class="relative flex items-start justify-start w-full text-lg font-bold tracking-wider text-pink-500 uppercase lg:justify-center lg:items-center"
         >
           Don't just take our word for it
         </p>
@@ -102,3 +102,6 @@
 </template>
 
 <script></script>
+<style>
+@import url(https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/5.3.45/css/materialdesignicons.min.css);
+</style>
