@@ -322,7 +322,7 @@ export default {
   width: 100%;
   height: 100%;
   position: absolute;
-  background: linear-gradient(45deg, #F17C58, #E94584, #24AADB, #27DBB1, #FFDC18, #FF3706);
+  background: linear-gradient(45deg, #ddc0b7, #e4a9c0, #9edcf3, #9cf5e0, #fef1a6, #f7d3ca);
   background-size: 600% 100%;
   animation: gradient 16s linear infinite;
   animation-direction: alternate;
