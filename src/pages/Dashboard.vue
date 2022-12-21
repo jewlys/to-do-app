@@ -339,7 +339,7 @@ export default {
   width: 100%;
   height: 100%;
   position: absolute;
-  background: linear-gradient(45deg, #A19FF5, #c0b2f2, #FFD8EC, #DC80B2, #9196F7, #f7d3ca);
+  background: linear-gradient(49deg, #A19FF5, #c0b2f2, #ffd8d8, #d1baff, #9196F7, #f7d3ca);
   background-size: 600% 100%;
   animation: gradient 16s linear infinite;
   animation-direction: alternate;

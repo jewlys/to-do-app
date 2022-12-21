@@ -3,11 +3,22 @@ import Clients from "../components/Clients.vue";
 import AboutUs from "../components/AboutUs.vue";
 
 export default {
+  data() {
+    return {
+      showMenu: false
+    }
+  },
+  methods: {
+    toggleNav() {
+      this.showMenu = !this.showMenu;
+    }
+  },
   components: {
     Clients,
     AboutUs,
   },
 };
+
 ("use strict");
 
 !(function () {
@@ -66,7 +77,7 @@ drift.load("i3sks436p5vp");
       <img class="fill-current h-8 w-8 mr-2" width="54" height="54" src="../assets/images/potionpink.png" />
       <span class="font-semibold text-xl tracking-tight">Potion</span>
     </div>
-    <div class="block lg:hidden">
+    <div @click="toggleNav" class="block lg:hidden">
       <button
         class="flex items-center px-3 py-2  border rounded text-blue-400 border-blue-400 hover:text-white hover:border-white">
         <svg class="fill-current h-3 w-3 " viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
@@ -75,7 +86,7 @@ drift.load("i3sks436p5vp");
         </svg>
       </button>
     </div>
-    <div class="w-full block flex-grow lg:flex lg:items-center lg:w-auto">
+    <div :class="showMenu ? 'flex' : 'hidden'" class="w-full block flex-grow lg:flex lg:items-center lg:w-auto">
       <div class="text-sm lg:flex-grow">
         <a href="#aboutUs" class="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-blue-400 mr-4">
           About Us
