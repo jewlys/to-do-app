@@ -4,8 +4,15 @@
   <div
     class="flex flex-col w-screen h-screen overflow-auto text-gray-700 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-indigo-100 via-blue-300 to-indigo-400">
     <AppHeader/>
+  <div id="big" class=" big flex flex-col w-screen h-screen overflow-auto text-gray-700 ">
     <div class="px-10 mt-6">
-      <h1 class="text-2xl font-bold">Team Project Board</h1>
+      <h1 class="text-2xl font-bold">Your Dashboard</h1>
+      <form action="">
+        <input class="flex items-center h-10 px-4 ml-10 text-sm bg-gray-200 rounded-full focus:outline-none focus:ring"
+          type="search" placeholder="Search for anything…" v-model="search">
+
+        {{ search }}
+      </form>
     </div>
 
     <div class="flex flex-grow px-10 mt-4 space-x-6 overflow-auto">
@@ -14,7 +21,7 @@ Drop zone begins  for column1-->
       <div id="dropzone" class="  flex flex-col flex-shrink-0 w-72 drag-el" :key="index" @drop="onDrop($event, 1)"
         @dragover.prevent @dragenter.prevent>
         <div class="flex items-center flex-shrink-0 h-10 px-2">
-          <span class="block text-sm font-semibold">To do</span>
+          <span class="block text-sm font-semibold">To Do </span>
           <span
             class="flex items-center justify-center w-5 h-5 ml-2 text-sm font-semibold text-blue-500 bg-white rounded bg-opacity-30">{{
                 tasksStore.getTasksbyStatus(1).length
@@ -23,12 +30,14 @@ Drop zone begins  for column1-->
 
         </div>
 
-        <TaskItem v-for="(task, index) in tasksStore.getTasksbyStatus(1)" :key="index" :task="task" class="card"
-          draggable="true" @dragstart="startDrag($event, task.id)" />
+        <TaskItem v-for="(task, index) in filteredTerms1" :key="index" :task="task" class="card" draggable="true"
+          @dragstart="startDrag($event, task.id)" />
+        <!-- <TaskItem v-if="filteredTerms(tasksStore.getTasksbyStatus(1))">Hola</TaskItem> -->
         <!--- Drop zone begins  for column2-->
         <NewTask
-          class="relative flex flex-col items-center p-4 mt-3 bg-white rounded-lg cursor-pointer bg-opacity-90 group hover:bg-opacity-100" />
-        <div v-if="tasksStore.getTasksbyStatus(1).length == 0">Sorry, you don't have any cards. Add some to get started!
+          class="relative flex flex-col items-center p-4 mt-3  bg-violet-50 rounded-lg cursor-pointer bg-opacity-90 group hover:bg-opacity-100" />
+        <div v-if="tasksStore.getTasksbyStatus(1).length == 0" class="mt-3 text-sm font-medium">Sorry, you don't have
+          any cards. Add some to get started!
         </div>
 
         <div>
@@ -44,10 +53,10 @@ Drop zone begins  for column1-->
                 tasksStore.getTasksbyStatus(2).length
             }}</span>
         </div>
-        <TaskItem v-for="(task, index) in tasksStore.getTasksbyStatus(2)" :key="index" :task="task" class="card"
-          draggable="true" @dragstart="startDrag($event, task.id)" />
+        <TaskItem v-for="(task, index) in filteredTerms2" :key="index" :task="task" class="card" draggable="true"
+          @dragstart="startDrag($event, task.id)" />
         <NewTask
-          class="relative flex flex-col items-center p-4 mt-3 bg-slate-100 rounded-lg cursor-pointer bg-opacity-90 group hover:bg-opacity-100" />
+          class="relative flex flex-col items-center p-4 mt-3 bg-violet-50 rounded-lg cursor-pointer bg-opacity-90 group hover:bg-opacity-100" />
         <div v-if="tasksStore.getTasksbyStatus(2).length == 0">Sorry, you don't have any cards. Add some to get started!
         </div>
       </div>
@@ -61,18 +70,19 @@ Drop zone begins  for column1-->
                 tasksStore.getTasksbyStatus(3).length
             }}</span>
         </div>
-        <TaskItem v-for="(task, index) in tasksStore.getTasksbyStatus(3)" :key="index" :task="task" class="card"
-          draggable="true" @dragstart="startDrag($event, task.id)" />
+        <TaskItem v-for="(task, index) in filteredTerms3" :key="index" :task="task" class="card" draggable="true"
+          @dragstart="startDrag($event, task.id)" />
         <NewTask
-          class="relative flex flex-col items-center p-4 mt-3 bg-slate-100 rounded-lg cursor-pointer bg-opacity-90 group hover:bg-opacity-100" />
+          class="relative flex flex-col items-center p-4 mt-3  bg-violet-50 rounded-lg cursor-pointer bg-opacity-90 group hover:bg-opacity-100" />
         <div v-if="tasksStore.getTasksbyStatus(3).length == 0">Sorry, you don't have any cards. Add some to get started!
         </div>
+        <!-- <NewColumn /> -->
 
       </div>
 
       <div class="flex-shrink-0 w-6"></div>
     </div>
-
+</div>
   </div>
 
 
@@ -88,16 +98,18 @@ import tasksStore from "../store/task";
 
 import AppHeader from "../components/AppHeader.vue";
 import Footer from "../components/Footer.vue";
+import NewColumn from "../components/NewColumn.vue";
 
 import { mapStores } from "pinia";
 
 export default {
   data() {
-    // we define user store inside a const
 
+    // we define user store inside a const
     return {
       newTask: NewTask,
       taskItem: TaskItem,
+      search: null,
     };
   },
 
@@ -106,6 +118,7 @@ export default {
     TaskItem,
     AppHeader,
     Footer,
+    NewColumn,
   },
 
 
@@ -177,6 +190,21 @@ export default {
 
 
   },
+  taskStoreGetter() {
+    this.tasksStore.addnewTask(
+      this.title,
+      this.userStore.user.id,
+      this.status
+    );
+    if (this.title.length < 3) {
+      return alert("Please enter more than 3 caracthers");
+    }
+    console.log(taskStoreGetter())
+    this.toggleModal();
+  },
+
+
+
   computed: {
     ...mapStores(tasksStore),
 
@@ -193,9 +221,79 @@ export default {
     // ColumTotalsByStatus() {
     //   return this.tasksStore.tasks.status;
     // },
+
+
+    filteredTerms1() {
+      if (this.search) {
+
+        return this.tasksStore.getTasksbyStatus(1).filter(task => task.title.toLowerCase().includes(this.search.toLowerCase()))
+
+
+      }
+      else return this.tasksStore.getTasksbyStatus(1)
+
+
+
+
+
+
+    },
+
+    filteredTerms2() {
+      if (this.search) {
+
+        return this.tasksStore.getTasksbyStatus(2).filter(task => task.title.toLowerCase().includes(this.search.toLowerCase()))
+
+
+      }
+      else return this.tasksStore.getTasksbyStatus(2)
+
+
+
+
+
+
+    },
+    filteredTerms3() {
+      if (this.search) {
+
+        return this.tasksStore.getTasksbyStatus(3).filter(task => task.title.toLowerCase().includes(this.search.toLowerCase()))
+
+
+      }
+      else return this.tasksStore.getTasksbyStatus(3)
+
+
+
+
+
+
+    },
+
+
+
+    // filteredTerms(filteredArray) {
+    //   if (this.search) {
+    //     return filteredArray.filter(task => task.title.toLowerCase().includes(this.search.toLowerCase()))
+    //   }
+    //   else {
+    //     return filteredArray;
+    //   }
+    // },
+
+    // filteredTerms: function() {
+
+
+    //   if (this.search) {
+    //     return this.tasksStore.tasks.filter((title) => {
+
+    //       return tasksStore.tasks.title.includes(this.search)
+    //     })
+    //   }
+
+    // },
+
   },
-
-
 
   mounted() {
     this.tasksStore.fetchTasks();
@@ -211,15 +309,33 @@ export default {
 
 
 <style scoped>
-:hover#drop-zone {}
-
-:hover.card {}
-
 .drag-over {
   transition: all 200ms ease;
   vertical-align: top;
 
   border: dashed 3px rgb(255, 255, 255);
+}
+
+.big {
+
+
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background: linear-gradient(45deg, #F17C58, #E94584, #24AADB, #27DBB1, #FFDC18, #FF3706);
+  background-size: 600% 100%;
+  animation: gradient 16s linear infinite;
+  animation-direction: alternate;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0%
+  }
+
+  100% {
+    background-position: 100%
+  }
 }
 </style>
 
