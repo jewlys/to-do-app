@@ -61,7 +61,7 @@ drift.load("i3sks436p5vp");
 
 <template>
   <!-- Section 1.1-->
-  <nav class="flex items-center justify-between flex-wrap sticky bg-blue-300 p-6">
+  <nav class="flex items-center justify-between flex-wrap sticky bg-blue-300 bg-opacity-95 p-6">
     <div class="flex items-center flex-shrink-0 text-white mr-6">
       <img class="fill-current h-8 w-8 mr-2" width="54" height="54" src="../assets/images/potionpink.png" />
       <span class="font-semibold text-xl tracking-tight">Potion</span>
@@ -115,7 +115,7 @@ drift.load("i3sks436p5vp");
             </p>
             <div class="relative flex flex-col sm:flex-row sm:space-x-4">
               <a href="/signup"
-                class="flex items-center w-full px-6 py-3 mb-3 text-lg text-slate-900 bg-blue-400 rounded-md sm:mb-0 hover:bg-blue-700 sm:w-auto">
+                class="flex items-center w-full px-6 py-3 mb-3 text-lg text-slate-900 bg-blue-400 rounded-md sm:mb-0 hover:bg-gray-200 sm:w-auto">
                 Sign Up
                 <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 ml-1" viewBox="0 0 24 24" fill="none"
                   stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></svg>
@@ -127,7 +127,7 @@ drift.load("i3sks436p5vp");
               </a>
 
               <a href="/login"
-                class="flex items-center px-6 py-3 text-gray-500 bg- rounded-md hover:bg-gray-200 hover:text-gray-600">
+                class="flex items-center px-6 py-3 text-gray-700 bg- rounded-md hover:bg-gray-200 hover:text-gray-600">
                 Log In
               </a>
             </div>
