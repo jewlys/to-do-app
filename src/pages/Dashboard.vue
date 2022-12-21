@@ -1,10 +1,11 @@
 <template>
-   <AppHeader/>
+   
  
   <div
-    class="flex flex-col w-screen h-screen overflow-auto text-gray-700 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-indigo-100 via-blue-300 to-indigo-400">
+    class="flex flex-col w-screen h-screen overflow-auto text-gray-700">
     
   <div id="big" class=" big flex flex-col w-screen h-screen overflow-auto text-gray-700 ">
+    <AppHeader/>
     <div class="flex px-10 mt-6">
       <h1 class="text-2xl font-bold">Your Dashboard</h1>
       <form action="">
@@ -338,7 +339,7 @@ export default {
   width: 100%;
   height: 100%;
   position: absolute;
-  background: linear-gradient(45deg, #ddc0b7, #e4a9c0, #9edcf3, #9cf5e0, #fef1a6, #f7d3ca);
+  background: linear-gradient(45deg, #A19FF5, #c0b2f2, #FFD8EC, #DC80B2, #9196F7, #f7d3ca);
   background-size: 600% 100%;
   animation: gradient 16s linear infinite;
   animation-direction: alternate;

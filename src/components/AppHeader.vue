@@ -1,5 +1,5 @@
 <template>
-  <nav class="flex items-center justify-between flex-wrap sticky bg-indigo-100 p-6">
+  <nav class="flex items-center justify-between flex-wrap sticky bg-indigo-100 bg-opacity-50 p-6">
     <div class="flex items-center flex-shrink-0 text-white mr-6">
       <img class="fill-current h-8 w-8 mr-2" width="54" height="54" src="../assets/images/potionpink.png" />
       <span class="font-semibold text-xl tracking-tight text-indigo-500">Potion</span>
