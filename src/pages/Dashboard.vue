@@ -5,13 +5,12 @@
     class="flex flex-col w-screen h-screen overflow-auto text-gray-700 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-indigo-100 via-blue-300 to-indigo-400">
     <AppHeader/>
   <div id="big" class=" big flex flex-col w-screen h-screen overflow-auto text-gray-700 ">
-    <div class="px-10 mt-6">
+    <div class="flex px-10 mt-6">
       <h1 class="text-2xl font-bold">Your Dashboard</h1>
       <form action="">
         <input class="flex items-center h-10 px-4 ml-10 text-sm bg-gray-200 rounded-full focus:outline-none focus:ring"
-          type="search" placeholder="Search for anything…" v-model="search">
+          type="search" placeholder="Search for a task.." v-model="search">
 
-        {{ search }}
       </form>
     </div>
 
@@ -32,6 +31,9 @@ Drop zone begins  for column1-->
 
         <TaskItem v-for="(task, index) in filteredTerms1" :key="index" :task="task" class="card" draggable="true"
           @dragstart="startDrag($event, task.id)" />
+        <div v-if="filteredTerms1.length === 0"><img src="https://media.giphy.com/media/13d2jHlSlxklVe/giphy.gif"
+            alt="">
+        </div>
         <!-- <TaskItem v-if="filteredTerms(tasksStore.getTasksbyStatus(1))">Hola</TaskItem> -->
         <!--- Drop zone begins  for column2-->
         <NewTask
@@ -55,6 +57,10 @@ Drop zone begins  for column1-->
         </div>
         <TaskItem v-for="(task, index) in filteredTerms2" :key="index" :task="task" class="card" draggable="true"
           @dragstart="startDrag($event, task.id)" />
+        <div v-if="filteredTerms2.length === 0"><img src="https://media.giphy.com/media/13d2jHlSlxklVe/giphy.gif"
+            alt="">
+        </div>
+
         <NewTask
           class="relative flex flex-col items-center p-4 mt-3 bg-violet-50 rounded-lg cursor-pointer bg-opacity-90 group hover:bg-opacity-100" />
         <div v-if="tasksStore.getTasksbyStatus(2).length == 0">Sorry, you don't have any cards. Add some to get started!
@@ -72,6 +78,9 @@ Drop zone begins  for column1-->
         </div>
         <TaskItem v-for="(task, index) in filteredTerms3" :key="index" :task="task" class="card" draggable="true"
           @dragstart="startDrag($event, task.id)" />
+        <div v-if="filteredTerms3.length === 0"><img src="https://media.giphy.com/media/13d2jHlSlxklVe/giphy.gif"
+            alt="">
+        </div>
         <NewTask
           class="relative flex flex-col items-center p-4 mt-3  bg-violet-50 rounded-lg cursor-pointer bg-opacity-90 group hover:bg-opacity-100" />
         <div v-if="tasksStore.getTasksbyStatus(3).length == 0">Sorry, you don't have any cards. Add some to get started!
@@ -245,7 +254,14 @@ export default {
         return this.tasksStore.getTasksbyStatus(2).filter(task => task.title.toLowerCase().includes(this.search.toLowerCase()))
 
 
+
+
       }
+
+      // else if (this.search && this.tasksStore.getTasksbyStatus(2).length === 0) {
+      //   console.log("nothing to show")
+
+      // }
       else return this.tasksStore.getTasksbyStatus(2)
 
 
