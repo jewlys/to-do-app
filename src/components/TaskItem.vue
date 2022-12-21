@@ -66,16 +66,16 @@
       </div>
     </button>
 
-    <span v-if="chooseStatus(1)"
+    <span v-if="chooseStatus() === 'new'"
       class="flex items-center h-6 px-3 text-xs font-semibold text-green-500 bg-green-100  rounded-full">{{
           chooseStatus()
       }}</span>
-    <span v-else-if="chooseStatus(2)"
-      class="flex items-center h-6 px-3 text-xs font-semibold text-blue-500 bg-green-100  rounded-full">{{
+    <span v-else-if="chooseStatus() === 'In progress'"
+      class="flex items-center h-6 px-3 text-xs font-semibold text-blue-500 bg-blue-100  rounded-full">{{
           chooseStatus()
       }}</span>
-    <span v-else-if="chooseStatus(3)"
-      class="flex items-center h-6 px-3 text-xs font-semibold text-red-500 bg-green-100  rounded-full">{{
+    <span v-else="tasksStore.chooseStatus() === 'Done'"
+      class="flex items-center h-6 px-3 text-xs font-semibold text-red-500 bg-red-100  rounded-full">{{
           chooseStatus()
       }}</span>
 
@@ -114,6 +114,7 @@ export default {
 
     updateTask() {
       this.tasksStore.updateTask(this.task.title, this.status, this.task.id);
+      this.toggleModal()
     },
 
     chooseStatus() {
@@ -136,8 +137,8 @@ export default {
         this.userStore.user.id,
         this.status
       );
-      if (this.title.length < 3) {
-        return alert("Please enter more than 3 caracthers");
+      if (this.title.length <= 3) {
+        return alert("Please enter more than 3 characters");
       }
 
       this.toggleModal();

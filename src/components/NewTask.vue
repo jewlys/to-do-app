@@ -1,19 +1,23 @@
 <template>
   <!-- other try with another form  -->
 
-  <form @submit.prevent="taskStoreGetter()">
-    <div>
-      <button type="button" v-on:click="toggleModal()"
-        class="flex items-center justify-center w-6 h-6 ml-auto text-blue-500 rounded hover:bg-blue-500 hover:text-blue-100"
-        data-modal-toggle="staticModal">
-        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
-        </svg>
+  <form @submit.prevent="taskStoreGetter()" class="">
+    <div
+      class="relative flex flex-col items-center p-4 mt-3  bg-violet-50 rounded-lg cursor-pointer bg-opacity-90 group hover:bg-opacity-100"
+      v-on:click="toggleModal()">
+      <div>
+        <button type="button" v-on:click="toggleModal()"
+          class="flex items-center justify-center w-6 h-6 ml-auto text-blue-500 rounded hover:bg-blue-500 hover:text-blue-100"
+          data-modal-toggle="staticModal">
+          <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
+          </svg>
 
-      </button>
+        </button>
+      </div>
+      <div class="text-indigo-500">
+        Add new</div>
     </div>
-    <div class="text-indigo-500">
-      Add new</div>
 
     <div v-if="showModal"
       class="overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none justify-center items-center flex">
@@ -58,7 +62,7 @@
             <button
               class="text-green-500 background-transparent font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
               type="button" v-on:click="taskStoreGetter()">
-              Save Changes
+              Save
             </button>
           </div>
         </div>

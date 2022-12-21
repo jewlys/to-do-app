@@ -98,7 +98,7 @@ Drop zone begins  for column1-->
 
 
 
-  <!-- Component End -->
+      <!-- Component End -->
 </template>
 
 <script>
