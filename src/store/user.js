@@ -4,6 +4,7 @@ import { supabase } from "../supabase";
 export default defineStore("user", {
   state: () => ({
     user: null,
+    error: null,
   }),
 
   actions: {
@@ -23,24 +24,21 @@ export default defineStore("user", {
         email: email,
         password: password,
       });
-      if (error) throw error;
+      if (error) {
+        this.error = error;
+      }
       if (data.user) {
         this.user = data.user;
         this.$router.push("/dashboard");
       }
     },
     async logOut() {
-      
-        const data  = await supabase.auth.signOut()
-        this.user = null
-        this.$router.push("/")
-        console.log(data)
+      const data = await supabase.auth.signOut();
+      this.user = null;
+      this.$router.push("/");
+      console.log(data);
       //  if (error) throw error;
-      
-       
     },
-
-
   },
   persist: {
     enabled: true,

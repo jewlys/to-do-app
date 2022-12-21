@@ -1,13 +1,5 @@
 <template>
-  <div v-if="error()" id="error" role="alert">
-    <div class="bg-red-500 text-white font-bold rounded-t px-4 py-2">Error</div>
-    <div
-      class="border border-t-0 border-red-400 rounded-b bg-red-100 px-4 py-3 text-red-700"
-    >
-      <p>Your email or password is incorrect.</p>
-    </div>
-  </div>
-
+  <AlertLogIn @submit="error()" />
   <section
     id="signuppage"
     class="flex justify-center relative py-20 2xl:py-40 overflow-hidden to-blue-200 via-blue-200 from-blue-200 bg-gradient-to-tr"
@@ -136,10 +128,14 @@
 <script>
 import { mapStores } from "pinia";
 import userStore from "../store/user";
+import AlertLogIn from "../components/AlertLogIn.vue";
 
 export default {
   computed: {
     ...mapStores(userStore),
+  },
+  components: {
+    AlertLogIn,
   },
   data() {
     return {
@@ -151,11 +147,11 @@ export default {
     logIn() {
       this.userStore.logIn(this.email, this.password);
     },
-    // error() {
-    //   this.userStore.signUp(this.email, this.password);
-    //   if (this.user && this.password === error) {
-    //     return alert();
-    //   }
+    error() {
+      if ((this.error = true)) {
+        return AlertLogIn;
+      }
+    },
   },
 };
 </script>
