@@ -6,6 +6,7 @@
         <div class="flex flex-wrap items-center -mx-4">
           <div class="w-full lg:w-1/2 px-4 mb-16 lg:mb-0">
             <div class="max-w-md">
+              <!-- <lottie-animation ref="anim" :animationData="require('@/assets/75705-welcome-animation.json')" /> -->
               <h2 class="flex justify-center mb-8 text-5xl font-bold font-heading text-slate-900">
                 Welcome back !
               </h2>
