@@ -5,6 +5,8 @@ import App from "./App.vue";
 import router from "./router";
 import "./assets/main.css";
 import "./index.css";
+import LottieAnimation from "lottie-web-vue";
+
 
 const pinia = createPinia()
   .use(piniaPersist)
@@ -12,3 +14,5 @@ const pinia = createPinia()
     store.$router = markRaw(router);
   });
 createApp(App).use(pinia).use(router).mount("#app");
+
+App.use(LottieAnimation);
