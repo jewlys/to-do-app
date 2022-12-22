@@ -1,5 +1,7 @@
 <template>
-  <AlertLogIn @submit="error()" />
+  <div v-if="alertLogIn">
+    <AlertLogIn />
+  </div>
   <section
     id="signuppage"
     class="flex justify-center relative py-20 2xl:py-40 overflow-hidden to-blue-200 via-blue-200 from-blue-200 bg-gradient-to-tr"
@@ -141,15 +143,14 @@ export default {
     return {
       email: "",
       password: "",
+      alertLogIn: false,
     };
   },
   methods: {
     logIn() {
       this.userStore.logIn(this.email, this.password);
-    },
-    error() {
-      if ((this.error = true)) {
-        return AlertLogIn;
+      if (this.userStore.error) {
+        this.alertLogIn = !this.alertLogIn;
       }
     },
   },
