@@ -5,8 +5,7 @@ import App from "./App.vue";
 import router from "./router";
 import "./assets/main.css";
 import "./index.css";
-import LottieAnimation from "lottie-web-vue";
-
+// import LottieAnimation from "lottie-web-vue";
 
 const pinia = createPinia()
   .use(piniaPersist)
