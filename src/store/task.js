@@ -26,31 +26,31 @@ export default defineStore("tasks", {
       this.tasks = tasks;
     },
     //update the task
-    async updateTask(title, status, itemID) {
-      console.log(title, status, itemID);
+    async updateTask(title, column_id, itemID) {
+      console.log(title, column_id, itemID);
       const { error } = await supabase
         .from("tasks")
-        .update({ title: title, status: status })
+        .update({ title: title, column_id: column_id })
         .eq("id", itemID)
       this.fetchTasks();
     },
-    async updateStatus(status, itemID) {
-      console.log(status, itemID);
+    async updateStatus(column_id, itemID) {
+      console.log(column_id, itemID);
 
       const { error } = await supabase
         .from("tasks")
-        .update({ status: status })
+        .update({ column_id: column_id })
         .eq("id", itemID)
       this.fetchTasks();
     },
 
 
     //add new task
-    async addnewTask(title, user_id, status) {
+    async addnewTask(title, user_id, column_id) {
       //  insert en la base
       const { error } = await supabase
         .from("tasks")
-        .insert({ user_id: user_id, title: title, status: status });
+        .insert({ user_id: user_id, title: title, column_id: column_id });
       if (error) throw error;
 
       this.fetchTasks();
@@ -69,12 +69,11 @@ export default defineStore("tasks", {
   },
   getters: {
     getTasksbyStatus: (state) => {
-      return (status) => state.tasks.filter((task) => task.status === status);
+      return (column_id) => state.tasks.filter((task) => task.column_id === column_id);
     },
 
-    getTitle: (state) => {
-
-      return (title) => state.tasks.filter((task) => task.title === title);
+    getTitle: (columnTitle) => {
+      return (coltitle) => columnTitle((coltitle) === coltitle);
 
     }
     // Trying it as a getter
