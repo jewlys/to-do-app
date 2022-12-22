@@ -214,3 +214,10 @@ drift.load("i3sks436p5vp");
 
   <Clients id="clients" />
 </template>
+
+<style>
+html {
+
+  scroll-behavior: smooth;
+}
+</style>

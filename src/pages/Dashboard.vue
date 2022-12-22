@@ -1,104 +1,103 @@
 <template>
-   
- 
-  <div
-    class="flex flex-col w-screen h-screen overflow-auto text-gray-700">
-    
-  <div id="big" class=" big flex flex-col w-screen h-screen overflow-auto text-gray-700 ">
-    <AppHeader/>
-    <div class="flex px-10 mt-6">
-      <h1 class="text-2xl font-bold">Your Dashboard</h1>
-      <form action="">
-        <input class="flex items-center h-10 px-4 ml-10 text-sm bg-gray-200 rounded-full focus:outline-none focus:ring"
-          type="search" placeholder="Search for a task.." v-model="search">
 
-      </form>
-    </div>
 
-    <div class="flex flex-grow px-10 mt-4 space-x-6 overflow-auto">
-      <!-- 
+  <div class="flex flex-col w-screen h-screen overflow-auto text-gray-700">
+
+    <div id="big" class=" big flex flex-col w-screen h-screen overflow-auto text-gray-700 ">
+      <AppHeader />
+      <div class="flex px-10 mt-6">
+        <h1 class="text-2xl font-bold">Your Dashboard</h1>
+        <form action="">
+          <input
+            class="flex items-center h-10 px-4 ml-10 text-sm bg-gray-200 rounded-full focus:outline-none focus:ring"
+            type="search" placeholder="Search for a task.." v-model="search">
+
+        </form>
+      </div>
+
+      <div class="flex flex-grow px-10 mt-4 space-x-6 overflow-auto">
+        <!-- 
 Drop zone begins  for column1-->
-      <div id="dropzone" class="  flex flex-col flex-shrink-0 w-72 drag-el" :key="index" @drop="onDrop($event, 1)"
-        @dragover.prevent @dragenter.prevent>
-        <div class="flex items-center flex-shrink-0 h-10 px-2">
-          <span class="block text-sm font-semibold">To Do </span>
-          <span
-            class="flex items-center justify-center w-5 h-5 ml-2 text-sm font-semibold text-blue-500 bg-white rounded bg-opacity-30">{{
-                tasksStore.getTasksbyStatus(1).length
-            }}
-          </span>
+        <div id="dropzone" class="  flex flex-col flex-shrink-0 w-72 drag-el" :key="index" @drop="onDrop($event, 1)"
+          @dragover.prevent @dragenter.prevent>
+          <div class="flex items-center flex-shrink-0 h-10 px-2">
+            <span class="block text-sm font-semibold">To Do </span>
+            <span
+              class="flex items-center justify-center w-5 h-5 ml-2 text-sm font-semibold text-blue-500 bg-white rounded bg-opacity-30">{{
+                  tasksStore.getTasksbyStatus(1).length
+              }}
+            </span>
+
+          </div>
+
+          <TaskItem v-for="(task, index) in filteredTerms1" :key="index" :task="task" class="card" draggable="true"
+            @dragstart="startDrag($event, task.id)" />
+          <div v-if="filteredTerms1.length === 0"><img src="https://media.giphy.com/media/13d2jHlSlxklVe/giphy.gif"
+              alt="">
+          </div>
+          <!-- <TaskItem v-if="filteredTerms(tasksStore.getTasksbyStatus(1))">Hola</TaskItem> -->
+          <!--- Drop zone begins  for column2-->
+          <NewTask class="" />
+          <div v-if="tasksStore.getTasksbyStatus(1).length == 0" class="mt-3 text-sm font-medium">Sorry, you don't have
+            any cards. Add some to get started!
+          </div>
+
+          <div>
+
+          </div>
+        </div>
+        <div id="dropzone" class=" flex flex-col flex-shrink-0 w-72 drag-el" :key="index" @drop="onDrop($event, 2)"
+          @dragover.prevent @dragenter.prevent>
+          <div class="flex items-center flex-shrink-0 h-10 px-2">
+            <span class="block text-sm font-semibold">Doing</span>
+            <span
+              class="flex items-center justify-center w-5 h-5 ml-2 text-sm font-semibold text-blue-500 bg-white rounded bg-opacity-30">{{
+                  tasksStore.getTasksbyStatus(2).length
+              }}</span>
+          </div>
+          <TaskItem v-for="(task, index) in filteredTerms2" :key="index" :task="task" class="card" draggable="true"
+            @dragstart="startDrag($event, task.id)" />
+          <div v-if="filteredTerms2.length === 0"><img src="https://media.giphy.com/media/13d2jHlSlxklVe/giphy.gif"
+              alt="">
+          </div>
+
+          <NewTask class="" />
+          <div v-if="tasksStore.getTasksbyStatus(2).length == 0">Sorry, you don't have any cards. Add some to get
+            started!
+          </div>
+        </div>
+
+        <div id="dropzone" class="  flex flex-col flex-shrink-0 w-72 drag-el" :key="index" @drop="onDrop($event, 3)"
+          @dragover.prevent @dragenter.prevent>
+          <div class="flex items-center flex-shrink-0 h-10 px-2">
+            <span class="block text-sm font-semibold">Done</span>
+            <span
+              class="flex items-center justify-center w-5 h-5 ml-2 text-sm font-semibold text-blue-500 bg-white rounded bg-opacity-30">{{
+                  tasksStore.getTasksbyStatus(3).length
+              }}</span>
+          </div>
+          <TaskItem v-for="(task, index) in filteredTerms3" :key="index" :task="task" class="card" draggable="true"
+            @dragstart="startDrag($event, task.id)" />
+          <div v-if="filteredTerms3.length === 0"><img src="https://media.giphy.com/media/13d2jHlSlxklVe/giphy.gif"
+              alt="">
+          </div>
+          <NewTask class="" />
+          <div v-if="tasksStore.getTasksbyStatus(3).length == 0">Sorry, you don't have any cards. Add some to get
+            started!
+          </div>
+          <!-- <NewColumn /> -->
 
         </div>
 
-        <TaskItem v-for="(task, index) in filteredTerms1" :key="index" :task="task" class="card" draggable="true"
-          @dragstart="startDrag($event, task.id)" />
-        <div v-if="filteredTerms1.length === 0"><img src="https://media.giphy.com/media/13d2jHlSlxklVe/giphy.gif"
-            alt="">
-        </div>
-        <!-- <TaskItem v-if="filteredTerms(tasksStore.getTasksbyStatus(1))">Hola</TaskItem> -->
-        <!--- Drop zone begins  for column2-->
-        <NewTask
-          class="relative flex flex-col items-center p-4 mt-3  bg-violet-50 rounded-lg cursor-pointer bg-opacity-90 group hover:bg-opacity-100" />
-        <div v-if="tasksStore.getTasksbyStatus(1).length == 0" class="mt-3 text-sm font-medium">Sorry, you don't have
-          any cards. Add some to get started!
-        </div>
-
-        <div>
-
-        </div>
+        <div class="flex-shrink-0 w-6"></div>
       </div>
-      <div id="dropzone" class=" flex flex-col flex-shrink-0 w-72 drag-el" :key="index" @drop="onDrop($event, 2)"
-        @dragover.prevent @dragenter.prevent>
-        <div class="flex items-center flex-shrink-0 h-10 px-2">
-          <span class="block text-sm font-semibold">Doing</span>
-          <span
-            class="flex items-center justify-center w-5 h-5 ml-2 text-sm font-semibold text-blue-500 bg-white rounded bg-opacity-30">{{
-                tasksStore.getTasksbyStatus(2).length
-            }}</span>
-        </div>
-        <TaskItem v-for="(task, index) in filteredTerms2" :key="index" :task="task" class="card" draggable="true"
-          @dragstart="startDrag($event, task.id)" />
-        <div v-if="filteredTerms2.length === 0"><img src="https://media.giphy.com/media/13d2jHlSlxklVe/giphy.gif"
-            alt="">
-        </div>
-
-        <NewTask
-          class="relative flex flex-col items-center p-4 mt-3 bg-violet-50 rounded-lg cursor-pointer bg-opacity-90 group hover:bg-opacity-100" />
-        <div v-if="tasksStore.getTasksbyStatus(2).length == 0">Sorry, you don't have any cards. Add some to get started!
-        </div>
-      </div>
-
-      <div id="dropzone" class="  flex flex-col flex-shrink-0 w-72 drag-el" :key="index" @drop="onDrop($event, 3)"
-        @dragover.prevent @dragenter.prevent>
-        <div class="flex items-center flex-shrink-0 h-10 px-2">
-          <span class="block text-sm font-semibold">Done</span>
-          <span
-            class="flex items-center justify-center w-5 h-5 ml-2 text-sm font-semibold text-blue-500 bg-white rounded bg-opacity-30">{{
-                tasksStore.getTasksbyStatus(3).length
-            }}</span>
-        </div>
-        <TaskItem v-for="(task, index) in filteredTerms3" :key="index" :task="task" class="card" draggable="true"
-          @dragstart="startDrag($event, task.id)" />
-        <div v-if="filteredTerms3.length === 0"><img src="https://media.giphy.com/media/13d2jHlSlxklVe/giphy.gif"
-            alt="">
-        </div>
-        <NewTask
-          class="relative flex flex-col items-center p-4 mt-3  bg-violet-50 rounded-lg cursor-pointer bg-opacity-90 group hover:bg-opacity-100" />
-        <div v-if="tasksStore.getTasksbyStatus(3).length == 0">Sorry, you don't have any cards. Add some to get started!
-        </div>
-        <!-- <NewColumn /> -->
-
-      </div>
-
-      <div class="flex-shrink-0 w-6"></div>
     </div>
-</div>
   </div>
 
 
 
 
-      <!-- Component End -->
+  <!-- Component End -->
 </template>
 
 <script>
